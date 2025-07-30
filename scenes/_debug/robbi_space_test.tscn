@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs0rskk2e6xr5"]
+
+[ext_resource type="Texture2D" uid="uid://bixfuw28r27jt" path="res://assets/textures/skybox/main.png" id="1_ej5ke"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3lrgf"]
+panorama = ExtResource("1_ej5ke")
+
+[sub_resource type="Sky" id="Sky_uk2ta"]
+sky_material = SubResource("PanoramaSkyMaterial_3lrgf")
+
+[sub_resource type="Environment" id="Environment_60md7"]
+background_mode = 2
+sky = SubResource("Sky_uk2ta")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_60md7")
