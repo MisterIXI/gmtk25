@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://by0tajfmlrp1s"]
+[gd_scene load_steps=6 format=3 uid="uid://by0tajfmlrp1s"]
 
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="1_iomyp"]
-[ext_resource type="Script" uid="uid://hqfr1qe5ajov" path="res://scenes/Entities/Player/robo_chan.gd" id="2_bdigk"]
+[ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="2_bdigk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdigk"]
 albedo_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
@@ -12,10 +12,6 @@ size = Vector2(50, 50)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kjmys"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_iomyp"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_bdigk"]
 
 [node name="Test_Game_Scene" type="Node3D"]
 
@@ -31,18 +27,11 @@ shape = SubResource("ConcavePolygonShape3D_kjmys")
 debug_fill = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0, 16.659, 10.02)
+transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0, 11.644, 10.02)
 size = 4.0
 
-[node name="Robo_Chan" type="CharacterBody3D" parent="."]
+[node name="Robo_Chan" parent="." instance=ExtResource("2_bdigk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("2_bdigk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Robo_Chan"]
-shape = SubResource("SphereShape3D_iomyp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Robo_Chan"]
-mesh = SubResource("CapsuleMesh_bdigk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7460574, 0.6658817, 0, -0.6658817, 0.7460574, 0, 6.9993114, 0)
