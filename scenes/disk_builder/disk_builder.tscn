@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ms72n18m8rtx"]
+
+[ext_resource type="Script" uid="uid://chg0t8q8tdh3m" path="res://scenes/disk_builder/disk_builder.gd" id="1_ivecv"]
+[ext_resource type="PackedScene" uid="uid://kq5u6cobmsbw" path="res://scenes/disk_builder/disk.tscn" id="2_jscgk"]
+
+[node name="DiskBuilder" type="Node3D"]
+script = ExtResource("1_ivecv")
+disk_preset = ExtResource("2_jscgk")
