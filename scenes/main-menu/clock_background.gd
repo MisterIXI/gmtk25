@@ -7,8 +7,8 @@ var hand_color_minute = Color(0.9, 0.9, 0.9)
 var hand_color_second = Color(0.0, 0.74, 0.83)
 var center_pin_color = Color(0.0, 0.74, 0.83)
 
-func _process(delta):
-	queue_redraw()
+# func _process(delta):
+# 	queue_redraw()
 	
 func _draw():
 	draw_rect(Rect2(Vector2.ZERO, size), background_color)
@@ -27,4 +27,9 @@ func _draw():
 	draw_line(center, center + Vector2.from_angle(minute_angle) * radius * 0.8, hand_color_minute, 4, true)
 	draw_line(center, center + Vector2.from_angle(second_angle) * radius * 0.9, hand_color_second, 2, true)
 
-	draw_circle(center, 8.0, center_pin_color)
+	draw_circle(center, 8.0, center_pin_color, true, -1, true)
+
+
+func _on_timer_timeout():
+	queue_redraw()
+	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5t2jyubv6nib"]
 
-[ext_resource type="Script" uid="uid://ck27ew68cm2ii" path="res://scenes/main-menu/clock_background.gd" id="1_qs7d8"]
+[ext_resource type="Script" uid="uid://cj5m4o8lwwtcw" path="res://scenes/main-menu/clock_background.gd" id="1_qs7d8"]
 
 [sub_resource type="Gradient" id="Gradient_qs7d8"]
 offsets = PackedFloat32Array(0.008230452, 1)
@@ -30,6 +30,9 @@ offset_right = 820.0
 offset_bottom = 1327.0
 script = ExtResource("1_qs7d8")
 
+[node name="Timer" type="Timer" parent="ClockBackground"]
+autostart = true
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -52,3 +55,5 @@ text = "Alter the time"
 [node name="Button3" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit the time"
+
+[connection signal="timeout" from="ClockBackground/Timer" to="ClockBackground" method="_on_timer_timeout"]
