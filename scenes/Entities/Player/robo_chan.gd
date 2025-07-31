@@ -1,5 +1,5 @@
 extends CharacterBody3D
-@onready var _player_visual_node : Node3D = $robo_chan_model
+@onready var player_visual_node : Node3D = $robo_chan_model
 
 const SPEED : float = 7.5
 const JUMP_VELOCITY : float = 4.5
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("action") and is_on_floor():
+	if Input.is_action_just_pressed("interact") and is_on_floor():
 		#case if nearby object else jump
 		velocity.y = JUMP_VELOCITY
 
@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	#apply visual to look to direction
-	_player_visual_node.look_at(_next_direction*SPEED)
+	if _input_direction != Vector2.ZERO:
+		player_visual_node.look_at(_next_direction*SPEED)
 	#apply velocity and slide
 	move_and_slide()

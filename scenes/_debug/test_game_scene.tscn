@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://by0tajfmlrp1s"]
+[gd_scene load_steps=8 format=3 uid="uid://by0tajfmlrp1s"]
 
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="1_iomyp"]
+[ext_resource type="PackedScene" uid="uid://bkgctf7xxl8wt" path="res://scenes/UI/Interacting_manager/interacting_manger.tscn" id="1_kjmys"]
 [ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="2_bdigk"]
+[ext_resource type="PackedScene" uid="uid://cu04utelbwhjk" path="res://scenes/Entities/Interactable_Objects/interacting_crate.tscn" id="3_ch601"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdigk"]
 albedo_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
@@ -14,6 +16,8 @@ size = Vector2(50, 50)
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
 
 [node name="Test_Game_Scene" type="Node3D"]
+
+[node name="Interacting_Manger" parent="." instance=ExtResource("1_kjmys")]
 
 [node name="Skybox" parent="." instance=ExtResource("1_iomyp")]
 
@@ -35,3 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7460574, 0.6658817, 0, -0.6658817, 0.7460574, 0, 6.9993114, 0)
+
+[node name="Interacting_Crate" parent="." instance=ExtResource("3_ch601")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7691326, 0, 7.551141)
