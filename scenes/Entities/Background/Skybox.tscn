@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cs0rskk2e6xr5"]
+
+[ext_resource type="Texture2D" uid="uid://bixfuw28r27jt" path="res://assets/textures/skybox/main.png" id="1_ej5ke"]
+[ext_resource type="Material" uid="uid://70rr7rb5612v" path="res://assets/textures/skybox/star_dust_particle_material.tres" id="3_uk2ta"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3lrgf"]
+panorama = ExtResource("1_ej5ke")
+
+[sub_resource type="Sky" id="Sky_uk2ta"]
+sky_material = SubResource("PanoramaSkyMaterial_3lrgf")
+
+[sub_resource type="Environment" id="Environment_60md7"]
+background_mode = 2
+sky = SubResource("Sky_uk2ta")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_60md7"]
+material = ExtResource("3_uk2ta")
+size = Vector2(1, 1)
+
+[sub_resource type="Curve" id="Curve_uk2ta"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0.0065789446, 1.6404493), 0.0, 0.0, 0, 0, Vector2(0.99999994, 1.0674155), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_60md7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9769736, 0), -4.056033, 0.0, 0, 0]
+point_count = 2
+
+[node name="Skybox" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_60md7")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transparency = 0.5
+cast_shadow = 0
+amount = 100
+lifetime = 10.0
+randomness = 1.0
+lifetime_randomness = 0.33
+mesh = SubResource("PlaneMesh_60md7")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+linear_accel_curve = SubResource("Curve_uk2ta")
+radial_accel_min = -1.0
+radial_accel_max = 1.0
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+damping_max = 0.5
+angle_max = 720.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_60md7")
