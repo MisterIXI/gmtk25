@@ -17,7 +17,7 @@ func _on_body_entered(_body : Node3D)->void:
 		get_tree().get_first_node_in_group("interact_manager").start_interacting_on_position(global_position, self)
 
 func _on_body_exited(_body : Node3D) -> void:
-	if _body.is_in_group("player"):
+	if _body.is_in_group("player")and !_is_holding:
 		_new_parent = null
 		print("hide interacting")
 		#hide interacting 3d Sprite
@@ -32,9 +32,3 @@ func drop_effect(_drop_position : Vector3) ->void:
 	print("drop")
 	_is_holding = false
 	global_position = _drop_position + Vector3(0,0.5,0)
-	#TODO
-	## later disable when rigidbody
-	var tween = create_tween()
-	tween.tween_property(self, "position:y",0.35, 1.5)
-	tween.tween_property(self, "position:y", 0.35, 1.5)
-	

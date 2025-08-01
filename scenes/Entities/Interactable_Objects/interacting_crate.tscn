@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmkxgvo2881s2" path="res://assets/interactable/alien_crate.glb" id="2_yhllt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtrx4"]
+size = Vector3(2.1878662, 2.4421387, 2.2592697)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yhllt"]
 size = Vector3(2.5914917, 2.5791016, 2.7997437)
@@ -12,11 +13,12 @@ size = Vector3(2.5914917, 2.5791016, 2.7997437)
 script = ExtResource("1_vtrx4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004699707, 0.9532471, 0.017253876)
 shape = SubResource("BoxShape3D_vtrx4")
+debug_color = Color(1, 0, 0.69803923, 0.41960785)
 
 [node name="alien_crate" parent="." instance=ExtResource("2_yhllt")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.14123976, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Interacting_Area" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51720214, 0)
