@@ -100,3 +100,5 @@ func body_exited_wiper_area_x(body: Node3D, disk_id: int) -> void:
 			move_node_to_disk(body, (disk_id + 1) % disk_count)
 		else:
 			objects_being_wiped.erase(body)
+			if body is RigidBody3D:
+				body.freeze = false
