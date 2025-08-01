@@ -6,13 +6,13 @@ uniform float expansion_max = 0.2;
 
 uniform float transition_in : hint_range(-1.0, 1.0) = -0.5;
 uniform float transition_out : hint_range(-1.0, 1.0) = 0.5;
-
+uniform vec3 surface_albedo = vec3(1);
 uniform sampler3D dissolve_noise_texture;
 uniform sampler3D hue_noise_texture;
 
 // Variables set by code
 uniform vec3 intersector_pos = vec3(0,0,0);
-uniform float intersector_radius = 1.0;
+uniform float intersector_radius = 0.0;
 uniform vec3 p_vec = vec3(0,0,0);
 uniform vec3 b_vec = vec3(0,0,0);
 
@@ -47,7 +47,7 @@ vec3 hsv2rgb(vec3 c)
 void fragment() {
 	vec4 pos_world = INV_VIEW_MATRIX * vec4(VERTEX, 1.0);
 	float dissolve_noise = texture(dissolve_noise_texture, pos_world.xyz).r;
-
+	ALBEDO = surface_albedo;
 	// Use the intersector distance to transition in the dissolve effect
 	float dst = sphereDst(pos_world.xyz, intersector_pos, intersector_radius);
 	float cutoff = 1.0 - smoothstep(transition_in, transition_out, dst);
