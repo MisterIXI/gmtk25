@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	#apply visual to look to direction
 	if _next_direction.length() > 0.1:
+		
 		player_visual_node.look_at(player_visual_node.global_position + Vector3(_input_direction.x,1,_input_direction.y), Vector3(0, 1, 0))
 	#apply velocity and slide
 	move_and_slide()
@@ -69,6 +70,7 @@ func _drop_interactable() ->void:
 	if _current_holding_object:
 		# remove holding interactable from hand
 		_current_holding_object.get_parent().remove_child(_current_holding_object)
+		get_tree().get_first_node_in_group("interact_manager").add_child(_current_holding_object)
 		_current_holding_object.drop_effect()
 	else: 
 		print("Player_Controller Error:  Null Object on _drop_interactable")

@@ -904,6 +904,7 @@ script = ExtResource("2_xqmoc")
 hand = NodePath("Armature/Skeleton3D/Hand_Left_Bone")
 
 [node name="Armature" type="Node3D" parent="robo_chan_model"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="robo_chan_model/Armature"]
 bones/0/name = "Root"
