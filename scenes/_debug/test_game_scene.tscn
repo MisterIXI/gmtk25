@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://by0tajfmlrp1s"]
+[gd_scene load_steps=10 format=3 uid="uid://by0tajfmlrp1s"]
 
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="1_iomyp"]
 [ext_resource type="PackedScene" uid="uid://bkgctf7xxl8wt" path="res://scenes/UI/Interacting_manager/interacting_manger.tscn" id="1_kjmys"]
 [ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="2_bdigk"]
 [ext_resource type="PackedScene" uid="uid://cu04utelbwhjk" path="res://scenes/Entities/Interactable_Objects/interacting_crate.tscn" id="3_ch601"]
+[ext_resource type="PackedScene" uid="uid://b4xpdq4v0culh" path="res://scenes/Entities/room/room_base.tscn" id="5_lvg0c"]
+[ext_resource type="PackedScene" uid="uid://ckagynukyr3mg" path="res://scenes/Entities/Trigger_Object/trigger_object.tscn" id="6_siig8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bdigk"]
 albedo_color = Color(0.34407577, 0.34407574, 0.34407574, 1)
@@ -31,14 +33,26 @@ shape = SubResource("ConcavePolygonShape3D_kjmys")
 debug_fill = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0, 11.644, 10.02)
+transform = Transform3D(1, 0, 0, 0, 0.6422125, 0.76652664, 0, -0.76652664, 0.6422125, -2.5268955, 25.134624, 22.613356)
 size = 4.0
 
 [node name="Robo_Chan" parent="." instance=ExtResource("2_bdigk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Robo_Chan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.593803, 0)
+light_color = Color(1, 1, 0, 1)
+omni_range = 24.321
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7460574, 0.6658817, 0, -0.6658817, 0.7460574, 0, 6.9993114, 0)
+transform = Transform3D(1, 0, 0, 0, -0.5665645, 0.8240174, 0, -0.8240174, -0.5665645, 0, 26.719364, 0)
+light_color = Color(0.8901961, 0.9098039, 1, 1)
+
+[node name="Room_Base" parent="." instance=ExtResource("5_lvg0c")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.7691326, -0.4740963, 7.551141)
+
+[node name="Trigger_Object" parent="." instance=ExtResource("6_siig8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.483446, 0.47408772, -4.21848)
 
 [node name="Interacting_Crate" parent="." instance=ExtResource("3_ch601")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7691326, 0, 7.551141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.769, 0.355, 7.551)
