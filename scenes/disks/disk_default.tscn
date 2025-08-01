@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://0nxicyyoxvju"]
+
+[ext_resource type="Script" uid="uid://bm35ax6w2e56q" path="res://scenes/disks/disk.gd" id="1_5q6d6"]
+[ext_resource type="Shader" uid="uid://mwfv6hjcqfcg" path="res://scenes/disks/disk_floor_shader.gdshader" id="2_1qfws"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qfws"]
+albedo_color = Color(0.41598046, 0.41598043, 0.4159804, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f50dr"]
+material = SubResource("StandardMaterial3D_1qfws")
+top_radius = 5.0
+bottom_radius = 5.0
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_itgqk"]
+height = 1.0
+radius = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1qfws"]
+render_priority = 0
+shader = ExtResource("2_1qfws")
+shader_parameter/fill_amount = 1.0
+shader_parameter/color1 = Color(0, 0, 0, 0.6392157)
+shader_parameter/color2 = Color(0.99607843, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_rnu2m"]
+material = SubResource("ShaderMaterial_1qfws")
+size = Vector2(10, 10)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p8kbn"]
+top_radius = 0.3
+bottom_radius = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l44yt"]
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb2vo"]
+transparency = 1
+albedo_color = Color(0.29411766, 1, 1, 0.36078432)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5q6d6"]
+material = SubResource("StandardMaterial3D_qb2vo")
+size = Vector3(5, 2, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qb2vo"]
+size = Vector3(5, 3, 0.5)
+
+[node name="Disk0" type="Node3D" node_paths=PackedStringArray("wiper", "progress_shader")]
+script = ExtResource("1_5q6d6")
+wiper = NodePath("WiperArea")
+progress_shader = NodePath("DiskFloor/ProgressShader")
+
+[node name="DiskFloor" type="StaticBody3D" parent="."]
+
+[node name="DiskFloorMesh" type="MeshInstance3D" parent="DiskFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("CylinderMesh_f50dr")
+
+[node name="DiskFloorColShape" type="CollisionShape3D" parent="DiskFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("CylinderShape3D_itgqk")
+
+[node name="ProgressShader" type="MeshInstance3D" parent="DiskFloor"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.01, 0)
+mesh = SubResource("QuadMesh_rnu2m")
+
+[node name="DiskPillar" type="StaticBody3D" parent="."]
+
+[node name="DiskPillarMesh" type="MeshInstance3D" parent="DiskPillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_p8kbn")
+
+[node name="DiskPillarColShape" type="CollisionShape3D" parent="DiskPillar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_l44yt")
+
+[node name="WiperArea" type="Area3D" parent="."]
+
+[node name="WiperMesh" type="MeshInstance3D" parent="WiperArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1, 0)
+mesh = SubResource("BoxMesh_5q6d6")
+
+[node name="WiperColShape" type="CollisionShape3D" parent="WiperArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.5, 0)
+shape = SubResource("BoxShape3D_qb2vo")
