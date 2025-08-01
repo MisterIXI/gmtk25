@@ -27,6 +27,6 @@ func interact()->void:
 func drop_effect() ->void:
 	print("drop")
 	var tween = create_tween()
-	tween.tween_property(self, "position:y",0.5, 1.5)
-	tween.tween_property(self, "position:y", 0.5, 1.5)
+	tween.tween_property(self, "position:y",1, 1.5)
+	tween.tween_property(self, "position:y", 1, 1.5)
 	
