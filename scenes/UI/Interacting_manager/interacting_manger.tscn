@@ -67,15 +67,15 @@ _data = {
 [node name="Interacting_Manger" type="Node3D" groups=["interact_manager"]]
 script = ExtResource("1_ef0ln")
 
-[node name="ui_inteacting" type="Node3D" parent="."]
+[node name="ui_interact" type="Node3D" parent="."]
 visible = false
 
-[node name="Sprite3D" type="Sprite3D" parent="ui_inteacting"]
+[node name="Sprite3D" type="Sprite3D" parent="ui_interact"]
 transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 1.3168246, 0)
 billboard = 1
 texture = ExtResource("2_f7bqh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ui_inteacting"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui_interact"]
 root_node = NodePath("../Sprite3D")
 libraries = {
 &"": SubResource("AnimationLibrary_kngbb")
