@@ -44,9 +44,10 @@ func update_dissolve_shader_parameters() -> void:
 	for body in objects_being_wiped:
 		var meshes = get_all_child_meshes(body)
 		for mesh_instance in meshes:
-			var mat = mesh_instance.mesh.surface_get_material(0)
-			mat.set("shader_parameter/intersector_pos", objects_being_wiped[body].global_position)
-			mat.set("shader_parameter/intersector_radius", 40)
+			for mat_i in mesh_instance.mesh.get_surface_count():
+				var mat = mesh_instance.mesh.surface_get_material(mat_i)
+				mat.set("shader_parameter/intersector_pos", objects_being_wiped[body].global_position)
+				mat.set("shader_parameter/intersector_radius", 40)
 
 func disable_dissolve_shader(mesh_instance: MeshInstance3D) -> void:
 	var mat = mesh_instance.mesh.surface_get_material(0)
