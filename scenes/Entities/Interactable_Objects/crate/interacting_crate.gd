@@ -35,6 +35,6 @@ func drop_effect(_drop_position : Vector3) ->void:
 	#TODO
 	## later disable when rigidbody
 	var tween = create_tween()
-	tween.tween_property(self, "position:y",0, 1.5)
-	tween.tween_property(self, "position:y", 0, 1.5)
+	tween.tween_property(self, "position:y",0.35, 1.5)
+	tween.tween_property(self, "position:y", 0.35, 1.5)
 	

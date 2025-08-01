@@ -1121,3 +1121,5 @@ speed_scale = 3.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02130127, 1.9843192, 0.018600464)
 shape = SubResource("BoxShape3D_xqmoc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CollisionShape3D"]
