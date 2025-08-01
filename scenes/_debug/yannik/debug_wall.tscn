@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://h3nlsbvuymjx"]
+
+[ext_resource type="Shader" uid="uid://ddv4i5hwh2yjy" path="res://scenes/_debug/yannik/dissolve.gdshader" id="1_xh2vt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xh2vt"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_wgwqq"]
+noise = SubResource("FastNoiseLite_xh2vt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cbbqc"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_xh2vt")
+shader_parameter/expansion_max = 0.2
+shader_parameter/transition_in = -0.5
+shader_parameter/transition_out = 0.5
+shader_parameter/surface_albedo = Vector3(1, 0, 0)
+shader_parameter/dissolve_noise_texture = SubResource("NoiseTexture3D_wgwqq")
+shader_parameter/intersector_pos = Vector3(0, 0, 0)
+shader_parameter/intersector_radius = 0.0
+shader_parameter/p_vec = Vector3(-18.91, 0, 0)
+shader_parameter/b_vec = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xh2vt"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_cbbqc")
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6761a"]
+size = Vector3(2, 2, 1)
+
+[node name="StaticBody3D2" type="StaticBody3D" groups=["wipeable"]]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xh2vt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6761a")

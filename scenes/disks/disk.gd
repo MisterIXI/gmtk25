@@ -6,3 +6,5 @@ extends Node3D
 
 @export var wiper: Area3D
 @export var progress_shader: MeshInstance3D
+@export var dissolve_indicator: MeshInstance3D
+@export var undissolve_indicator: MeshInstance3D
