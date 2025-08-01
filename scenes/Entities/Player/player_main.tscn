@@ -899,8 +899,9 @@ script = ExtResource("1_fblew")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_iomyp")
 
-[node name="robo_chan_model" type="Node3D" parent="."]
+[node name="robo_chan_model" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("2_xqmoc")
+hand = NodePath("Armature/Skeleton3D/Hand_Left_Bone")
 
 [node name="Armature" type="Node3D" parent="robo_chan_model"]
 

@@ -8,6 +8,8 @@ const ACCELERATION : float  = 10
 # Private Variables
 var _input_direction : Vector2  = Vector2.ZERO
 var _next_direction : Vector3 = Vector3.ZERO
+# holding interactable
+var _current_holding_object : Node3D = null
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -15,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("interact") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		#case if nearby object else jump
 		velocity.y = JUMP_VELOCITY
 
@@ -37,3 +39,18 @@ func _physics_process(delta: float) -> void:
 		player_visual_node.look_at(_next_direction*SPEED)
 	#apply velocity and slide
 	move_and_slide()
+
+func set_new_interactable(_node : Node3D) ->void:
+	if _current_holding_object != null:
+		## drop current holding interactable
+		# remove holding interactable from hand
+		_current_holding_object.get_parent().remove_child(_current_holding_object)
+		_current_holding_object.drop_effect()
+	if _node:
+		# apply new item
+		_current_holding_object = _node
+		#add as child to hand left
+		_current_holding_object.get_parent().remove_child(_current_holding_object)
+		player_visual_node.hand.add_child(_current_holding_object)
+		#reset local position
+		position =  Vector3.ZERO
