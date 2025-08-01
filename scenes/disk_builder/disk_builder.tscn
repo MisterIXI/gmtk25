@@ -4,5 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://kq5u6cobmsbw" path="res://scenes/disk_builder/disk.tscn" id="2_jscgk"]
 
 [node name="DiskBuilder" type="Node3D"]
+transform = Transform3D(0.9997662, 0, 0.021622945, 0, 1, 0, -0.021622945, 0, 0.9997662, 0, 0, 0)
 script = ExtResource("1_ivecv")
 disk_preset = ExtResource("2_jscgk")
