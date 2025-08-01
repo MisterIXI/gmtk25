@@ -24,9 +24,12 @@ func interact()->void:
 	print("Interact")
 	get_tree().get_first_node_in_group("player").set_new_interactable(self)
 
-func drop_effect() ->void:
+func drop_effect(_drop_position : Vector3) ->void:
 	print("drop")
+	global_position = _drop_position + Vector3(0,0.5,0)
+	#TODO
+	## later disable when rigidbody
 	var tween = create_tween()
-	tween.tween_property(self, "position:y",1, 1.5)
-	tween.tween_property(self, "position:y", 1, 1.5)
+	tween.tween_property(self, "position:y",0, 1.5)
+	tween.tween_property(self, "position:y", 0, 1.5)
 	

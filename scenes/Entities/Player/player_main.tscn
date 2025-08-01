@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://hqfr1qe5ajov" path="res://scenes/Entities/Player/robo_chan.gd" id="1_fblew"]
 [ext_resource type="Script" uid="uid://b4bj5dnmw2fki" path="res://scenes/Entities/Player/robo_chan_model.gd" id="2_xqmoc"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_iomyp"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq7l6"]
 resource_name = "Head"
 cull_mode = 2
@@ -892,12 +890,12 @@ _data = {
 &"driving_forward": SubResource("Animation_fblew")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqmoc"]
+size = Vector3(1.9937744, 3.7474976, 1.2463074)
+
 [node name="Robo_Chan" type="CharacterBody3D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_fblew")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_iomyp")
 
 [node name="robo_chan_model" type="Node3D" parent="." node_paths=PackedStringArray("hand")]
 script = ExtResource("2_xqmoc")
@@ -1119,3 +1117,7 @@ libraries = {
 }
 autoplay = "driving_forward"
 speed_scale = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02130127, 1.9843192, 0.018600464)
+shape = SubResource("BoxShape3D_xqmoc")
