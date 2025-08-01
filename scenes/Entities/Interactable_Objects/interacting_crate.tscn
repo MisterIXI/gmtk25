@@ -10,6 +10,7 @@ size = Vector3(2.1878662, 2.4421387, 2.2592697)
 size = Vector3(2.5914917, 2.5791016, 2.7997437)
 
 [node name="Interacting_Crate" type="RigidBody3D" groups=["interactable"]]
+sleeping = true
 script = ExtResource("1_vtrx4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

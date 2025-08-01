@@ -42,6 +42,7 @@ interact_manager=""
 player=""
 interactable=""
 wipeable=""
+trigger=""
 
 [input]
 

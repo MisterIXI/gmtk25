@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by0tajfmlrp1s"]
+[gd_scene load_steps=9 format=3 uid="uid://by0tajfmlrp1s"]
 
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="1_iomyp"]
 [ext_resource type="PackedScene" uid="uid://bkgctf7xxl8wt" path="res://scenes/UI/Interacting_manager/interacting_manger.tscn" id="1_kjmys"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cu04utelbwhjk" path="res://scenes/Entities/Interactable_Objects/interacting_crate.tscn" id="3_ch601"]
 [ext_resource type="PackedScene" uid="uid://b4xpdq4v0culh" path="res://scenes/Entities/room/room_base.tscn" id="5_lvg0c"]
 [ext_resource type="PackedScene" uid="uid://ckagynukyr3mg" path="res://scenes/Entities/Trigger_Object/trigger_object.tscn" id="6_siig8"]
+[ext_resource type="PackedScene" uid="uid://c0f06ismxwadk" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.tscn" id="8_i65vk"]
 
 [node name="Test_Game_Scene" type="Node3D"]
 
@@ -35,5 +36,18 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.7691326, -0.4740963, 
 [node name="Trigger_Object" parent="." instance=ExtResource("6_siig8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.483446, 0.47408772, -4.21848)
 
+[node name="Trigger_Object2" parent="." instance=ExtResource("6_siig8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.961565, 0.47408772, 3.6822948)
+
 [node name="Interacting_Crate" parent="." instance=ExtResource("3_ch601")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.769, 0.355, 7.551)
+sleeping = false
+linear_damp = 0.3
+angular_damp = 0.2
+
+[node name="Interacting_Crate2" parent="." instance=ExtResource("3_ch601")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.478982, 0.355, 12.645426)
+
+[node name="Trigger_Door_Mechanic" parent="." node_paths=PackedStringArray("trigger_collection") instance=ExtResource("8_i65vk")]
+transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 0, -9.036478)
+trigger_collection = [NodePath("../Trigger_Object"), NodePath("../Trigger_Object2")]

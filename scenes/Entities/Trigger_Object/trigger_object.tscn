@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://ckagynukyr3mg"]
+[gd_scene load_steps=11 format=4 uid="uid://ckagynukyr3mg"]
 
 [ext_resource type="Script" uid="uid://b3qskjsnoqopa" path="res://scenes/Entities/Trigger_Object/trigger_object.gd" id="1_mnjmx"]
 [ext_resource type="Material" uid="uid://dmrcfgy42n7g3" path="res://scenes/Entities/Trigger_Object/Trigger_Object_Mat_Red.tres" id="2_nb3di"]
 [ext_resource type="PackedScene" uid="uid://ce20072karc3o" path="res://assets/interactable/Trigger_Ground.glb" id="2_y1hc6"]
 [ext_resource type="Material" uid="uid://c24cgvkeipq2b" path="res://scenes/Entities/Trigger_Object/Trigger_Object_Mat_Green.tres" id="3_mnjmx"]
+[ext_resource type="PackedScene" uid="uid://dufrxd64qc8mk" path="res://scenes/Entities/shield/shield.tscn" id="5_nb3di"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvlk5"]
 
@@ -50,7 +51,7 @@ shadow_mesh = SubResource("ArrayMesh_3uyxv")
 [sub_resource type="SphereShape3D" id="SphereShape3D_y1hc6"]
 radius = 1.712
 
-[node name="Trigger_Object" type="StaticBody3D"]
+[node name="Trigger_Object" type="StaticBody3D" groups=["trigger"]]
 script = ExtResource("1_mnjmx")
 _trigger_red_button_mat = ExtResource("2_nb3di")
 _trigger_green_button_mat = ExtResource("3_mnjmx")
@@ -59,6 +60,9 @@ _trigger_green_button_mat = ExtResource("3_mnjmx")
 shape = SubResource("BoxShape3D_cvlk5")
 
 [node name="Trigger_Ground" parent="." instance=ExtResource("2_y1hc6")]
+
+[node name="Shield" parent="." instance=ExtResource("5_nb3di")]
+transform = Transform3D(5.615, 0, 0, 0, 5.615, 0, 0, 0, 5.615, 0, -0.3664441, 0)
 
 [node name="Trigger_button" type="Node3D" parent="."]
 
