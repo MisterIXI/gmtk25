@@ -36,6 +36,7 @@ folder_colors={
 
 interact_manager=""
 player=""
+interactable=""
 
 [input]
 
