@@ -41,6 +41,7 @@ folder_colors={
 interact_manager=""
 player=""
 wipeable=""
+interactable=""
 
 [input]
 
