@@ -145,7 +145,7 @@ metadata/_custom_type_script = "uid://dgcceg4n5yq2p"
 [node name="Disk0" parent="." instance=ExtResource("2_536mm")]
 
 [node name="Robo_Chan" parent="Disk0" instance=ExtResource("3_mcw8d")]
-transform = Transform3D(0.36112747, 0, -0.34581348, 0, 0.5, 0, 0.34581348, 0, 0.36112747, 7.299345, 0.64391106, -2.413608)
+transform = Transform3D(0.36112747, 0, -0.34581348, 0, 0.5, 0, 0.34581348, 0, 0.36112747, -5.8652906, 0.64391106, 4.4504495)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Disk0" groups=["wipeable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.398, 1, 0)
