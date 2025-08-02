@@ -15,7 +15,7 @@ func _draw():
 	var center = size/ 2.0
 	
 	var radius= min(size.x,size.y)/2.5
-	draw_circle(center, radius, clock_face_color)
+	#draw_circle(center, radius, clock_face_color)
 	
 	var time = Time.get_time_dict_from_system()
 	
