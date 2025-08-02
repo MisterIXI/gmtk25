@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://4pwh4u8tmwu8"]
+
+[ext_resource type="PackedScene" uid="uid://f0xecrx3ewq4" path="res://assets/Portal/Portal_base.glb" id="1_yapfp"]
+[ext_resource type="PackedScene" uid="uid://dsi638crf6ebd" path="res://assets/Portal/Portal_inner_sphere.glb" id="2_1ddnn"]
+[ext_resource type="Script" uid="uid://k6msq4l8bkh4" path="res://assets/Portal/portal_inner_effect.gd" id="3_1ddnn"]
+[ext_resource type="PackedScene" uid="uid://btr0p1qpopyfe" path="res://assets/Portal/Portal_inner_cube.glb" id="3_1dysx"]
+[ext_resource type="PackedScene" uid="uid://dit678fv2lulq" path="res://assets/Portal/Portal_inner_triangle.glb" id="4_s0rlk"]
+
+[sub_resource type="Animation" id="Animation_lby23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wgab3"]
+resource_name = "rotate"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.265732, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ddcli"]
+_data = {
+&"RESET": SubResource("Animation_lby23"),
+&"rotate": SubResource("Animation_wgab3")
+}
+
+[node name="Portal" type="Node3D"]
+
+[node name="Portal_base" parent="." instance=ExtResource("1_yapfp")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../rotating")
+libraries = {
+&"": SubResource("AnimationLibrary_ddcli")
+}
+autoplay = "rotate"
+
+[node name="rotating" type="Node3D" parent="."]
+
+[node name="Portal_inner_sphere2" parent="rotating" instance=ExtResource("2_1ddnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5656837, 0.17097843, 0)
+script = ExtResource("3_1ddnn")
+
+[node name="Portal_inner_sphere3" parent="rotating" instance=ExtResource("2_1ddnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60748744, 0.17097843, 0)
+script = ExtResource("3_1ddnn")
+
+[node name="Portal_inner_cube" parent="rotating" instance=ExtResource("3_1dysx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17097843, -0.5673219)
+script = ExtResource("3_1ddnn")
+
+[node name="Portal_inner_cube2" parent="rotating" instance=ExtResource("3_1dysx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17097843, 0.6681701)
+script = ExtResource("3_1ddnn")
+
+[node name="Portal_inner_triangle2" parent="rotating" instance=ExtResource("4_s0rlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4359005, 0.17097843, 0.45842826)
+script = ExtResource("3_1ddnn")
+
+[node name="Portal_inner_triangle3" parent="rotating" instance=ExtResource("4_s0rlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3670883, 0.17097843, -0.42060643)
+script = ExtResource("3_1ddnn")
+
+[node name="Portal_inner_triangle4" parent="rotating" instance=ExtResource("4_s0rlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43531114, 0.17097843, -0.36888996)
+script = ExtResource("3_1ddnn")
+
+[node name="Portal_inner_triangle5" parent="rotating" instance=ExtResource("4_s0rlk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38154462, 0.17097843, 0.4939695)
+script = ExtResource("3_1ddnn")

@@ -1,6 +1,6 @@
 [gd_resource type="SphereMesh" load_steps=2 format=3 uid="uid://cjh426arwydmf"]
 
-[ext_resource type="Material" uid="uid://bpt1qavg5yaga" path="res://scenes/Entities/shield/shield_mat.tres" id="1_ygr3l"]
+[ext_resource type="Material" uid="uid://dvplamnynxmqt" path="res://scenes/Entities/Trigger_Object/Shield_base.tres" id="1_ygr3l"]
 
 [resource]
 material = ExtResource("1_ygr3l")
