@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cenjyqpw7aqeh"]
+[gd_scene load_steps=12 format=3 uid="uid://cenjyqpw7aqeh"]
 
 [ext_resource type="Script" uid="uid://dgcceg4n5yq2p" path="res://scenes/wiper_mechanic/time_wiper.gd" id="1_7juxn"]
 [ext_resource type="PackedScene" uid="uid://7b1bpwywy5xq" path="res://scenes/level_entities/special_entities/level_disk.tscn" id="2_1sjbh"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="6_jo27r"]
 [ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="7_jo27r"]
 [ext_resource type="PackedScene" uid="uid://cr4t270bjcvjj" path="res://scenes/level_entities/spike_decoration.tscn" id="7_p4el3"]
+[ext_resource type="PackedScene" uid="uid://ckagynukyr3mg" path="res://scenes/Entities/Trigger_Object/trigger_object.tscn" id="8_jo27r"]
 
 [node name="LevelPackage" type="Node3D"]
 
@@ -119,6 +120,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -12)
 
 [node name="Robo_Chan" parent="Disk0" instance=ExtResource("7_jo27r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 8)
+
+[node name="Trigger_Object" parent="Disk0" groups=["wipeable"] instance=ExtResource("8_jo27r")]
+transform = Transform3D(0.79, 0, 0, 0, 0.79, 0, 0, 0, 0.79, 3, 0, 11)
 
 [node name="Disk1" parent="." instance=ExtResource("2_1sjbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
