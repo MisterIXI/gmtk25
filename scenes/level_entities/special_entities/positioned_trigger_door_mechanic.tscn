@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b13bs01mncrj2"]
+
+[ext_resource type="PackedScene" uid="uid://c0f06ismxwadk" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.tscn" id="1_sr8hi"]
+
+[node name="Trigger_Door_Mechanic" instance=ExtResource("1_sr8hi")]
+transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)
