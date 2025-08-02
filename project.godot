@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="TimeWiper"
-run/main_scene="uid://cr0vl3ekkvcnn"
+run/main_scene="uid://b5t2jyubv6nib"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+LevelManager="*res://scenes/Autoload/level_manager.tscn"
 
 [display]
 
