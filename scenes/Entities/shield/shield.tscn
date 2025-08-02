@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dufrxd64qc8mk"]
+
+[ext_resource type="SphereMesh" uid="uid://cjh426arwydmf" path="res://scenes/Entities/shield/shield_mesh.tres" id="1_n2qxl"]
+
+[node name="Shield" type="MeshInstance3D"]
+transform = Transform3D(5.615, 0, 0, 0, 5.615, 0, 0, 0, 5.615, 0, 0, 0)
+mesh = ExtResource("1_n2qxl")
+skeleton = NodePath("../Trigger_button/button")

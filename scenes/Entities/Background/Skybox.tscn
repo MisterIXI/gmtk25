@@ -1,17 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs0rskk2e6xr5"]
+[gd_scene load_steps=15 format=3 uid="uid://cs0rskk2e6xr5"]
 
 [ext_resource type="Texture2D" uid="uid://bixfuw28r27jt" path="res://assets/textures/skybox/main.png" id="1_ej5ke"]
+[ext_resource type="Script" uid="uid://dn5vx26bxfund" path="res://scenes/Entities/Background/world_environment.gd" id="2_vq4k8"]
 [ext_resource type="Material" uid="uid://70rr7rb5612v" path="res://assets/textures/skybox/star_dust_particle_material.tres" id="3_uk2ta"]
+[ext_resource type="Material" uid="uid://6b8vvh2wmyp0" path="res://scenes/Entities/Background/sun.tres" id="4_mnkng"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3lrgf"]
 panorama = ExtResource("1_ej5ke")
 
 [sub_resource type="Sky" id="Sky_uk2ta"]
 sky_material = SubResource("PanoramaSkyMaterial_3lrgf")
+process_mode = 1
+radiance_size = 6
 
 [sub_resource type="Environment" id="Environment_60md7"]
 background_mode = 2
 sky = SubResource("Sky_uk2ta")
+ambient_light_source = 3
 tonemap_mode = 2
 glow_enabled = true
 
@@ -28,10 +33,29 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9769736, 0), -4.056033, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="SphereMesh" id="SphereMesh_1byjt"]
+material = ExtResource("4_mnkng")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajwgb"]
+transparency = 1
+specular_mode = 1
+albedo_color = Color(1, 0.44705883, 0, 0.015686275)
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6g72s"]
+material = SubResource("StandardMaterial3D_ajwgb")
+radial_segments = 32
+rings = 16
+
+[sub_resource type="Curve" id="Curve_inrix"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.993421, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Skybox" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_60md7")
+script = ExtResource("2_vq4k8")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transparency = 0.5
@@ -56,3 +80,20 @@ damping_max = 0.5
 angle_max = 720.0
 scale_amount_min = 0.2
 scale_amount_curve = SubResource("Curve_60md7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.74416, -35.491737, -51.330322)
+mesh = SubResource("SphereMesh_1byjt")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="MeshInstance3D"]
+transparency = 0.93
+cast_shadow = 0
+amount = 25
+mesh = SubResource("SphereMesh_6g72s")
+spread = 180.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+damping_max = 0.5
+angle_max = 720.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_inrix")

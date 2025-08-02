@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkgctf7xxl8wt"]
+
+[ext_resource type="Script" uid="uid://vr0o7jt0wrh7" path="res://scenes/UI/Interacting_manager/interacting_manger.gd" id="1_ef0ln"]
+[ext_resource type="Texture2D" uid="uid://c23fkkem6sqg5" path="res://assets/textures/ui/interact/interact.png" id="2_f7bqh"]
+
+[node name="Interacting_Manger" type="Node3D" groups=["interact_manager"]]
+script = ExtResource("1_ef0ln")
+
+[node name="ui_interact" type="Node3D" parent="."]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="ui_interact"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.468179, 0)
+billboard = 1
+texture = ExtResource("2_f7bqh")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu04utelbwhjk"]
+
+[ext_resource type="Script" uid="uid://ys0w2n1dmfmt" path="res://scenes/Entities/Interactable_Objects/crate/interacting_crate.gd" id="1_vtrx4"]
+[ext_resource type="PackedScene" uid="uid://dmkxgvo2881s2" path="res://assets/interactable/alien_crate.glb" id="2_yhllt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtrx4"]
+size = Vector3(2.1878662, 2.4421387, 2.2592697)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhllt"]
+size = Vector3(2.5914917, 2.5791016, 2.7997437)
+
+[node name="Interacting_Crate" type="RigidBody3D" groups=["interactable"]]
+sleeping = true
+script = ExtResource("1_vtrx4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004699707, 0.9532471, 0.017253876)
+shape = SubResource("BoxShape3D_vtrx4")
+debug_color = Color(1, 0, 0.69803923, 0.41960785)
+
+[node name="alien_crate" parent="." instance=ExtResource("2_yhllt")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="Interacting_Area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51720214, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interacting_Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020965576, 0.28955078, 0.018951416)
+shape = SubResource("BoxShape3D_yhllt")
