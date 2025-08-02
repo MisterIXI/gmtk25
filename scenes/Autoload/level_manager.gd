@@ -15,7 +15,7 @@ func on_level_change(index : int) ->void:
 
 	call_deferred("_start_new_scene",level_nodes[index])
 	current_index = index
-	level_changed.emit()
+
 func on_start_game() ->void:
 	call_deferred("_start_new_scene",level_nodes[0])
 	
@@ -23,11 +23,13 @@ func on_start_game() ->void:
 func on_next_level_change() ->void:
 	current_index += 1
 	call_deferred("_start_new_scene",level_nodes[current_index])
-	level_changed.emit()
+
 
 func _start_new_scene(_scene : PackedScene) ->void:
+	print("Start Next Level")
 	if current_scene != null:
 		current_scene.free()  # Free the current scene if it exists
 	current_scene = _scene.instantiate()
 	get_tree().root.add_child(current_scene)  # Add the new scene to the root
 	get_tree().current_scene = current_scene  # Set the current scene in the tree
+	level_changed.emit()

@@ -2,8 +2,19 @@ extends Control
 
 @onready var main_menu_buttons = %MainMenuButtons
 @onready var user_options = %UserOptions
+@onready var menu_control : Control = $Menu
+@onready var scene_transition_control: Control = $Level_Transition
+@onready var _start_button : Button =$Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button
+@onready var _resume_button : Button  =$Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button4
 
 var active_tween: Tween
+var _is_game_paused: bool = false
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape") and !_is_game_paused:
+		#Pause Game
+		print("PAUSED GAME")
+		_on_button_paused_game_pressed()
 
 func _ready() -> void:
 	#debugging brought to you by 
@@ -28,7 +39,17 @@ func _ready() -> void:
 	user_options.visible = false
 	user_options.modulate.a = 0.0
 
+func on_scene_change_cast_transition_effect()->void:
+	scene_transition_control.on_scene_change()
+
+#start game and hide menu - transition 
 func _on_start_game_button_pressed() -> void:
+	on_scene_change_cast_transition_effect()
+	#hide start button and show resume
+	_start_button.hide()
+	_resume_button.show()
+
+	menu_control.hide()
 	LevelManager.on_start_game()
 
 func _on_options_button_pressed() -> void:
@@ -69,9 +90,23 @@ func _show_options_menu() -> void:
 	if user_options and is_instance_valid(user_options):
 		user_options.visible = true
 
-#thanks ai for showing me some fucking stupid fixes. I dont know
+#thanks ai for showing me some stupid fixes. I dont know
 func _show_main_menu() -> void:
 	if user_options and is_instance_valid(user_options):
 		user_options.visible = false
 	if main_menu_buttons and is_instance_valid(main_menu_buttons):
 		main_menu_buttons.visible = true
+
+func _on_button_paused_game_pressed() ->void:
+	get_tree().paused = true
+	_is_game_paused = true
+	scene_transition_control.on_game_paused_effect()
+	menu_control.show()
+
+func _on_button_resume_pressed() -> void:
+	scene_transition_control.on_game_resume_effect()
+	get_tree().paused = false
+	_is_game_paused =false
+
+	on_scene_change_cast_transition_effect()
+	menu_control.hide()
