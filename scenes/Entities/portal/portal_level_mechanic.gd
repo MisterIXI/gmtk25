@@ -1,17 +1,17 @@
-extends Node3D
+extends Area3D
 class_name Portal_Level_Mechanic
 
 # this script check if trigger is on and switch materials
 # if player entered this area and trigger all on- 
 #animation will play and level is finished
 @export var _door_mechanic : Interacting_Door_Mechanic
-@export var _portal_active_area_mat : StandardMaterial3D
-@export var _portal_active_bogen_mat : StandardMaterial3D
+@export var _portal_active_area_mat : ShaderMaterial
+@export var _portal_active_bogen_mat : ShaderMaterial
 @export var _portal_mesh : MeshInstance3D
 ## base mats
 #Private Variables
-var _base_portal_active_area_mat : StandardMaterial3D
-var _base_portal_active_bogen_mat : StandardMaterial3D
+var _base_portal_active_area_mat : ShaderMaterial
+var _base_portal_active_bogen_mat : ShaderMaterial
 @export var portal_is_enabled : bool = false
 
 # Called when the node enters the scene tree for the first time.

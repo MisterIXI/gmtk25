@@ -4,5 +4,5 @@
 resource_name = "Portal_Lift"
 transparency = 4
 cull_mode = 2
-albedo_color = Color(0.24450472, 0.28521204, 0.9063747, 0.1417323)
+albedo_color = Color(0.244505, 0.285212, 0.906375, 0.141732)
 roughness = 0.5

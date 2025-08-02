@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://14sudf7hsfr6"]
+[gd_scene load_steps=7 format=3 uid="uid://14sudf7hsfr6"]
 
 [ext_resource type="Script" uid="uid://dgcceg4n5yq2p" path="res://scenes/wiper_mechanic/time_wiper.gd" id="1_akakv"]
 [ext_resource type="PackedScene" uid="uid://dalxmm5xn4831" path="res://scenes/Entities/Camera/camera_game_scene.tscn" id="2_cw4rs"]
 [ext_resource type="PackedScene" uid="uid://7b1bpwywy5xq" path="res://scenes/level_entities/special_entities/level_disk.tscn" id="2_osny8"]
+[ext_resource type="PackedScene" uid="uid://b13bs01mncrj2" path="res://scenes/level_entities/special_entities/positioned_trigger_door_mechanic.tscn" id="3_m66dq"]
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="3_osny8"]
+[ext_resource type="PackedScene" uid="uid://4pwh4u8tmwu8" path="res://scenes/Entities/portal/portal_base.tscn" id="4_m66dq"]
 
 [node name="LevelPackage" type="Node3D"]
 
@@ -16,8 +18,16 @@ metadata/_custom_type_script = "uid://dgcceg4n5yq2p"
 
 [node name="Disk0" parent="." instance=ExtResource("2_osny8")]
 
+[node name="Portal" parent="Disk0" node_paths=PackedStringArray("_door_mechanic") instance=ExtResource("4_m66dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -4)
+_door_mechanic = NodePath("../Trigger_Door_Mechanic")
+portal_is_enabled = true
+
+[node name="Trigger_Door_Mechanic" parent="Disk0" instance=ExtResource("3_m66dq")]
+
 [node name="Disk1" parent="." instance=ExtResource("2_osny8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+disk_id = 1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.923404, 0.331038, -0.194264, -0.040033, 0.586425, 0.809014, 0.381736, -0.73927, 0.55476, -4.13683, 5.00266, 0)

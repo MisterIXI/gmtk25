@@ -16,7 +16,7 @@ roughness = 0.4
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmp5o"]
 resource_name = "Room_main_Color"
 cull_mode = 2
-albedo_color = Color(0.90588, 0.866667, 0.784314, 1)
+albedo_color = Color(0.521141, 0.521141, 0.521141, 1)
 roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dbck"]

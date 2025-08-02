@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=4 uid="uid://c0f06ismxwadk"]
+[gd_scene load_steps=16 format=4 uid="uid://c0f06ismxwadk"]
 
 [ext_resource type="Script" uid="uid://dy7qoi6tfuixs" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.gd" id="1_bfuq0"]
 [ext_resource type="Shape3D" uid="uid://cowegm8g3m833" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic_collision.tres" id="2_0dxch"]
 [ext_resource type="Material" uid="uid://dndvrl6jnmo7q" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic_base.tres" id="3_gw2cc"]
 [ext_resource type="Material" uid="uid://crlpj6f41uwf0" path="res://scenes/Entities/Trigger_Door_Mechanic/Trigger_door_green_Mat.tres" id="4_573c5"]
-[ext_resource type="PackedScene" uid="uid://dufrxd64qc8mk" path="res://scenes/Entities/shield/shield.tscn" id="4_dbkc3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbkc3"]
 resource_name = "Trigger_Ground_mat"
@@ -113,15 +112,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jdsm0")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dah2d"]
-transparency = 1
-albedo_color = Color(0.678431, 1, 1, 0.0117647)
-emission = Color(0, 1, 0.94902, 1)
-emission_energy_multiplier = 1.93
-
-[sub_resource type="SphereMesh" id="SphereMesh_yuc1e"]
-material = SubResource("StandardMaterial3D_dah2d")
 
 [sub_resource type="Animation" id="Animation_8sfki"]
 length = 0.001
@@ -367,10 +357,6 @@ mesh = SubResource("ArrayMesh_ukiu0")
 skeleton = NodePath("")
 surface_material_override/1 = ExtResource("3_gw2cc")
 surface_material_override/2 = ExtResource("3_gw2cc")
-
-[node name="Shield" parent="." instance=ExtResource("4_dbkc3")]
-transform = Transform3D(15.4, 0, 0, 0, 15.4, 0, 0, 0, 15.4, 0, 0, 0)
-mesh = SubResource("SphereMesh_yuc1e")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

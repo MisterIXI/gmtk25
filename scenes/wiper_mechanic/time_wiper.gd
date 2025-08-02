@@ -16,7 +16,9 @@ func _ready():
 	set_wipeable_bodies_color()
 	for i in range(disks.size()):
 		disks[i].wiper.body_entered.connect(body_entered_on_wiper_area_x.bind(i))
+		disks[i].wiper.area_entered.connect(body_entered_on_wiper_area_x.bind(i))
 		disks[i].wiper.body_exited.connect(body_exited_wiper_area_x.bind(i))
+		disks[i].wiper.area_exited.connect(body_exited_wiper_area_x.bind(i))
 
 func _physics_process(delta):
 	for disk in disks:
@@ -76,7 +78,7 @@ func find_all_wipeable_bodies(root_node: Node) -> Array[Node]:
 
 func disable_dissolve_shader(mesh_instance: MeshInstance3D) -> void:
 	var mat = mesh_instance.mesh.surface_get_material(0)
-	mat.set("shader_parameter/intersector_pos", Vector3.ZERO)
+	mat.set("shader_parameter/intersector_pos", Vector3.DOWN * 100)
 	mat.set("shader_parameter/intersector_radius", 0)
 
 func move_node_to_disk(body: Node3D, disk_id: int) -> void:

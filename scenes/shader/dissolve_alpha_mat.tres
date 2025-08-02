@@ -7,7 +7,6 @@ frequency = 0.0546
 
 [sub_resource type="NoiseTexture3D" id="NoiseTexture3D_2h4wf"]
 noise = SubResource("FastNoiseLite_3rq66")
-seamless = true
 
 [resource]
 render_priority = 0
