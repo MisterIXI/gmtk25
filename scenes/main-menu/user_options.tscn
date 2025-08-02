@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwms5tpukff7t"]
+[gd_scene load_steps=3 format=3 uid="uid://cwms5tpukff7t"]
 
 [ext_resource type="Script" uid="uid://df7idmhpu0xbb" path="res://scenes/main-menu/user_options.gd" id="1_w6jiu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6jiu"]
 
 [node name="UserOptions" type="Control"]
 layout_mode = 3
@@ -44,6 +46,53 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "Back"
+
+[node name="Info_Container" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w6jiu")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Info_Container"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 420
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/Info_Container/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label_info" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+Move: 
+Interact:
+Camera Zoom:
+Pause:"
+
+[node name="Label_buttons" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "
+ W,A,S,D
+ E
+ Mouse Wheel
+Escape"
+
+[node name="Label2" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controller:     Support enabled"
+horizontal_alignment = 1
 
 [connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="item_selected" from="CenterContainer/PanelContainer/VBoxContainer/DisplayModeButton" to="." method="_on_display_mode_button_item_selected"]
