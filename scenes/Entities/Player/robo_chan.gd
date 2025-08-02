@@ -1,9 +1,9 @@
 extends CharacterBody3D
 @onready var player_visual_node : Node3D = $robo_chan_model
 
-const SPEED : float = 7.5
-const JUMP_VELOCITY : float = 4.5
-const ACCELERATION : float  = 10
+const SPEED : float = 4.5
+const JUMP_VELOCITY : float = 2.5
+const ACCELERATION : float  = 8
 const LOOK_SMOOTHNESS : float = 8.0
 # Private Variables
 var _input_direction : Vector2  = Vector2.ZERO
