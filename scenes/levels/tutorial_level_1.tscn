@@ -1,3 +1,169 @@
-[gd_scene load_steps=0 format=3 uid="uid://cenjyqpw7aqeh"]
+[gd_scene load_steps=11 format=3 uid="uid://cenjyqpw7aqeh"]
 
-[node name="TutorialLevel1" type="Node3D"]
+[ext_resource type="Script" uid="uid://dgcceg4n5yq2p" path="res://scenes/wiper_mechanic/time_wiper.gd" id="1_7juxn"]
+[ext_resource type="PackedScene" uid="uid://7b1bpwywy5xq" path="res://scenes/level_entities/special_entities/level_disk.tscn" id="2_1sjbh"]
+[ext_resource type="PackedScene" uid="uid://4pwh4u8tmwu8" path="res://scenes/Entities/portal/portal_base.tscn" id="3_hdbbv"]
+[ext_resource type="PackedScene" uid="uid://c0f06ismxwadk" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.tscn" id="4_0v4lm"]
+[ext_resource type="PackedScene" uid="uid://b8jfqxna2kd20" path="res://scenes/level_entities/basic_block_wall.tscn" id="5_1sjbh"]
+[ext_resource type="PackedScene" uid="uid://dalxmm5xn4831" path="res://scenes/Entities/Camera/camera_game_scene.tscn" id="5_p4el3"]
+[ext_resource type="PackedScene" uid="uid://bflp3dea0v8q4" path="res://scenes/level_entities/deco_cube.tscn" id="6_0v4lm"]
+[ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="6_jo27r"]
+[ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="7_jo27r"]
+[ext_resource type="PackedScene" uid="uid://cr4t270bjcvjj" path="res://scenes/level_entities/spike_decoration.tscn" id="7_p4el3"]
+
+[node name="LevelPackage" type="Node3D"]
+
+[node name="TimeWiper" type="Node" parent="." node_paths=PackedStringArray("disks")]
+script = ExtResource("1_7juxn")
+disks = [NodePath("../Disk0"), NodePath("../Disk1")]
+colors = Array[Color]([Color(0.929412, 0.682353, 0.286275, 1), Color(0.819608, 0.286275, 0.356863, 1), Color(0, 0.47451, 0.54902, 1), Color(0.639216, 0.788235, 0.658824, 1), Color(0.215686, 0.117647, 0.188235, 1)])
+object_colors = Array[Color]([Color(0.623991, 0.437945, 0.115333, 1), Color(0.57833, 0.166102, 0.22794, 1), Color(9.62615e-08, 0.338951, 0.394386, 1), Color(0.245787, 0.353207, 0.261924, 1), Color(0.149237, 0.0749916, 0.128469, 1)])
+metadata/_custom_type_script = "uid://dgcceg4n5yq2p"
+
+[node name="Disk0" parent="." instance=ExtResource("2_1sjbh")]
+
+[node name="Portal" parent="Disk0" node_paths=PackedStringArray("_door_mechanic") groups=["wipeable"] instance=ExtResource("3_hdbbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -3)
+_door_mechanic = NodePath("../Trigger_Door_Mechanic")
+portal_is_enabled = true
+
+[node name="Trigger_Door_Mechanic" parent="Disk0" instance=ExtResource("4_0v4lm")]
+transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)
+
+[node name="BasicBlockWall" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="BasicBlockWall2" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="BasicBlockWall3" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="BasicBlockWall4" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="BasicBlockWall5" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="BasicBlockWall6" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="BasicBlockWall7" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="BasicBlockWall8" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="BasicBlockWall9" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="BasicBlockWall10" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="BasicBlockWall11" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="BasicBlockWall12" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="BasicBlockWall13" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="BasicBlockWall14" parent="Disk0" instance=ExtResource("5_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="DecoCube" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 6)
+
+[node name="DecoCube2" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2)
+
+[node name="DecoCube3" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -1)
+
+[node name="DecoCube4" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 9)
+
+[node name="DecoCube5" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 7)
+
+[node name="DecoCube6" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3)
+
+[node name="DecoCube7" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 8)
+
+[node name="DecoCube8" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 12)
+
+[node name="DecoCube9" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
+
+[node name="DecoCube10" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 2)
+
+[node name="DecoCube11" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -8)
+
+[node name="DecoCube12" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -12)
+
+[node name="DecoCube13" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+
+[node name="DecoCube14" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9)
+
+[node name="DecoCube15" parent="Disk0" instance=ExtResource("6_0v4lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -12)
+
+[node name="Robo_Chan" parent="Disk0" instance=ExtResource("7_jo27r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 8)
+
+[node name="Disk1" parent="." instance=ExtResource("2_1sjbh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+disk_id = 1
+
+[node name="SpikeDecoration" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+
+[node name="SpikeDecoration2" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -13)
+
+[node name="SpikeDecoration3" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -8)
+
+[node name="SpikeDecoration4" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 7)
+
+[node name="SpikeDecoration5" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 5)
+
+[node name="SpikeDecoration6" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -4)
+
+[node name="SpikeDecoration7" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 8)
+
+[node name="SpikeDecoration8" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 4)
+
+[node name="SpikeDecoration9" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+
+[node name="SpikeDecoration10" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 13)
+
+[node name="SpikeDecoration11" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 11)
+
+[node name="SpikeDecoration12" parent="Disk1" instance=ExtResource("7_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 9)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.923404, 0.331038, -0.194264, -0.040033, 0.586425, 0.809014, 0.381736, -0.73927, 0.55476, -4.13683, 5.00266, 0)
+
+[node name="Camera3D" parent="." instance=ExtResource("5_p4el3")]
+transform = Transform3D(1, 0, 0, 0, 0.485283, 0.874357, 0, -0.874357, 0.485283, 0, 17, 13.5)
+
+[node name="Skybox" parent="." instance=ExtResource("6_jo27r")]
