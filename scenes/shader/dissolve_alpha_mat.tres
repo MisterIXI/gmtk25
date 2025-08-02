@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://3fq6mjx1y7yh"]
+
+[ext_resource type="Shader" uid="uid://bfycdxt5rm071" path="res://scenes/shader/dissolve_alpha.gdshader" id="1_jfjww"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3rq66"]
+frequency = 0.0546
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_2h4wf"]
+noise = SubResource("FastNoiseLite_3rq66")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jfjww")
+shader_parameter/expansion_max = 0.0
+shader_parameter/transition_in = -0.5
+shader_parameter/transition_out = 1.0
+shader_parameter/surface_albedo = Color(1, 1, 1, 0.4)
+shader_parameter/dissolve_noise_texture = SubResource("NoiseTexture3D_2h4wf")
+shader_parameter/intersector_pos = Vector3(5.055, 0, 0)
+shader_parameter/intersector_radius = 4.055000000007567
