@@ -17,6 +17,8 @@ func _input(event: InputEvent) -> void:
 		_on_button_paused_game_pressed()
 
 func _ready() -> void:
+	if get_tree().root.name != "Main_Menu":
+		hide()
 	#debugging brought to you by 
 	#GEMINI :D
 	if not main_menu_buttons:

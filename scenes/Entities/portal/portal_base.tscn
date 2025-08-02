@@ -525,7 +525,7 @@ height = 2.58594
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lby23"]
 radius = 1.0
 
-[node name="Portal" type="Area3D" node_paths=PackedStringArray("_portal_mesh") groups=["wipeable"]]
+[node name="Portal" type="Area3D" node_paths=PackedStringArray("_portal_mesh")]
 script = ExtResource("1_s0rlk")
 _portal_active_area_mat = SubResource("ShaderMaterial_s0rlk")
 _portal_active_bogen_mat = SubResource("ShaderMaterial_wgab3")

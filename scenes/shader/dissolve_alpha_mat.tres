@@ -17,4 +17,4 @@ shader_parameter/transition_out = 1.0
 shader_parameter/surface_albedo = Color(1, 1, 1, 0.4)
 shader_parameter/dissolve_noise_texture = SubResource("NoiseTexture3D_2h4wf")
 shader_parameter/intersector_pos = Vector3(5.055, 0, 0)
-shader_parameter/intersector_radius = 4.055000000007567
+shader_parameter/intersector_radius = 4.055
