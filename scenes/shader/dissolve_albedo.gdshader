@@ -7,6 +7,7 @@ uniform float expansion_max = 0.2;
 uniform float transition_in : hint_range(-1.0, 1.0) = -0.5;
 uniform float transition_out : hint_range(-1.0, 1.0) = 0.5;
 uniform vec4 surface_albedo : source_color = vec4(1);
+uniform vec4 emission: source_color = vec4(0);
 uniform float metallic: hint_range(0.0, 1.0) = 0.0;
 uniform float roughness: hint_range(0.0, 1.0) = 1.0;
 uniform sampler3D dissolve_noise_texture;
@@ -51,6 +52,7 @@ void fragment() {
 	float dissolve_noise = texture(dissolve_noise_texture, pos_world.xyz).r;
 	ALBEDO = surface_albedo.xyz;
 	METALLIC = metallic;
+	EMISSION = emission.xyz;
 	ROUGHNESS = roughness;
 	//ALPHA = surface_albedo.a;
 	// Use the intersector distance to transition in the dissolve effect
