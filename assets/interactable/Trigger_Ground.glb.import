@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ce20072karc3o"
-path="res://.godot/imported/Trigger_Ground.glb-e87b1018feead25bcdd97bba08d1c175.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/interactable/Trigger_Ground.glb"
-dest_files=["res://.godot/imported/Trigger_Ground.glb-e87b1018feead25bcdd97bba08d1c175.scn"]
 
 [params]
 
