@@ -5,22 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cwms5tpukff7t" path="res://scenes/main-menu/user_options.tscn" id="3_m4j2j"]
 [ext_resource type="Script" uid="uid://3n2ba47ilwja" path="res://scenes/main-menu/level_transition.gd" id="4_viftl"]
 
-[sub_resource type="Animation" id="Animation_aukgh"]
-resource_name = "resolve"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("color_resolve_rect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_h26tg"]
 length = 0.001
 tracks/0/type = "value"
@@ -49,7 +33,23 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.6666667)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.666667)]
+}
+
+[sub_resource type="Animation" id="Animation_aukgh"]
+resource_name = "resolve"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("color_resolve_rect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1iqh0"]
@@ -60,8 +60,8 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_qs7d8"]
-offsets = PackedFloat32Array(0.008230452, 1)
-colors = PackedColorArray(0.33333334, 1, 1, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.00823045, 1)
+colors = PackedColorArray(0.333333, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ngnu3"]
 gradient = SubResource("Gradient_qs7d8")
@@ -114,7 +114,7 @@ mouse_filter = 2
 [node name="Sprite2D" type="Sprite2D" parent="Menu"]
 visible = false
 position = Vector2(519, 309)
-scale = Vector2(9.300782, 1192.75)
+scale = Vector2(9.30078, 1192.75)
 texture = SubResource("GradientTexture1D_ngnu3")
 
 [node name="ClockBackground" type="Control" parent="Menu"]
