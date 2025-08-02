@@ -14,7 +14,7 @@ const DISPLAY_MODE_NAMES = ["Windowed", "Fullscreen"]
 
 func _ready():
 	var bus_idx = AudioServer.get_bus_index("Master")
-	volume_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_idx)) * 100.0
+	volume_slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_idx)) * 40.0
 	if OS.has_feature("web"):
 		display_mode_button.hide()
 		display_mode_label.hide()
