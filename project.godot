@@ -53,6 +53,7 @@ player=""
 interactable=""
 wipeable=""
 trigger=""
+color_immunity=""
 
 [input]
 
