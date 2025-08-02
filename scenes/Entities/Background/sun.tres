@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://6b8vvh2wmyp0"]
+
+[resource]
+shading_mode = 2
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0.34169033, 0.076430224, 0, 1)
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.31400967, 2.4065375e-07, 9.62615e-08, 1)
+stencil_flags = 2
