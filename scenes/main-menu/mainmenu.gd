@@ -29,7 +29,7 @@ func _ready() -> void:
 	user_options.modulate.a = 0.0
 
 func _on_start_game_button_pressed() -> void:
-	pass
+	LevelManager.on_start_game()
 
 func _on_options_button_pressed() -> void:
 	if not main_menu_buttons or not user_options:

@@ -21,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_ngnu3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(519, 309)
 scale = Vector2(9.300782, 1192.75)
 texture = SubResource("GradientTexture1D_ngnu3")
