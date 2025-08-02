@@ -26,11 +26,11 @@ size = Vector2(1, 1)
 
 [sub_resource type="Curve" id="Curve_uk2ta"]
 _limits = [1.0, 4.0, 0.0, 1.0]
-_data = [Vector2(0.0065789446, 1.6404493), 0.0, 0.0, 0, 0, Vector2(0.99999994, 1.0674155), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.00657894, 1.64045), 0.0, 0.0, 0, 0, Vector2(1, 1.06742), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_60md7"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9769736, 0), -4.056033, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.976974, 0), -4.05603, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="SphereMesh" id="SphereMesh_1byjt"]
@@ -39,7 +39,7 @@ material = ExtResource("4_mnkng")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajwgb"]
 transparency = 1
 specular_mode = 1
-albedo_color = Color(1, 0.44705883, 0, 0.015686275)
+albedo_color = Color(1, 0.447059, 0, 0.0156863)
 roughness = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_6g72s"]
@@ -82,7 +82,7 @@ scale_amount_min = 0.2
 scale_amount_curve = SubResource("Curve_60md7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.74416, -35.491737, -51.330322)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7442, -35.4917, -51.3303)
 mesh = SubResource("SphereMesh_1byjt")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="MeshInstance3D"]
