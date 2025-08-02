@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ce20072karc3o"
-valid=false
+uid="uid://cwjwg83vi33f0"
+path="res://.godot/imported/Trigger_button_Ground.glb-a48a773ae841318bf31ee2d8aa972113.scn"
 
 [deps]
 
-source_file="res://assets/interactable/Trigger_Ground.glb"
+source_file="res://assets/interactable/Trigger_button_Ground.glb"
+dest_files=["res://.godot/imported/Trigger_button_Ground.glb-a48a773ae841318bf31ee2d8aa972113.scn"]
 
 [params]
 
