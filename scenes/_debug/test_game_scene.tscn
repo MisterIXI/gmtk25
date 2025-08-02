@@ -16,28 +16,28 @@
 [node name="Skybox" parent="." instance=ExtResource("1_iomyp")]
 
 [node name="Camera3D" parent="." instance=ExtResource("3_2s5yi")]
-transform = Transform3D(1, 0, 0, 0, 0.6422125, 0.76652664, 0, -0.76652664, 0.6422125, -1.297, 19.715, 23.323)
+transform = Transform3D(1, 0, 0, 0, 0.642213, 0.766527, 0, -0.766527, 0.642213, -1.297, 19.715, 23.323)
 
 [node name="Robo_Chan" parent="." instance=ExtResource("2_bdigk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Robo_Chan"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.593803, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5938, 0)
 light_color = Color(1, 1, 0, 1)
 omni_range = 24.321
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.5665645, 0.8240174, 0, -0.8240174, -0.5665645, 0, 26.719364, 0)
-light_color = Color(0.8901961, 0.9098039, 1, 1)
+transform = Transform3D(1, 0, 0, 0, -0.566565, 0.824017, 0, -0.824017, -0.566565, 0, 26.7194, 0)
+light_color = Color(0.890196, 0.909804, 1, 1)
 
 [node name="Room_Base" parent="." instance=ExtResource("5_lvg0c")]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.7691326, -0.4740963, 7.551141)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.769133, -0.474096, 7.55114)
 
 [node name="Trigger_Object" parent="." instance=ExtResource("6_siig8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.483446, 0.47408772, -4.21848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48345, 0.474088, -4.21848)
 
 [node name="Trigger_Object2" parent="." instance=ExtResource("6_siig8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.961565, 0.47408772, 3.6822948)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9616, 0.474088, 3.68229)
 
 [node name="Interacting_Crate" parent="." instance=ExtResource("3_ch601")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.769, 0.355, 7.551)
@@ -46,8 +46,8 @@ linear_damp = 0.3
 angular_damp = 0.2
 
 [node name="Interacting_Crate2" parent="." instance=ExtResource("3_ch601")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.478982, 0.355, 12.645426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.479, 0.355, 12.6454)
 
 [node name="Trigger_Door_Mechanic" parent="." node_paths=PackedStringArray("trigger_collection") instance=ExtResource("8_i65vk")]
-transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 0, -9.036478)
+transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, 0, -9.03648)
 trigger_collection = [NodePath("../Trigger_Object"), NodePath("../Trigger_Object2")]
