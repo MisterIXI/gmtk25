@@ -5,6 +5,7 @@ extends Node
 @export var disks: Array[Disk]
 ## current wipe angle in rad
 @export var colors: Array[Color]
+@export var object_colors: Array[Color]
 var progress: float
 var curr_start_id: int = 0
 var wipe_angle: float = 0.0
@@ -12,6 +13,7 @@ var wipe_angle: float = 0.0
 var objects_being_wiped: Dictionary[Node3D, MeshInstance3D] = {}
 @onready var disk_count: int = disks.size()
 func _ready():
+	set_wipeable_bodies_color()
 	for i in range(disks.size()):
 		disks[i].wiper.body_entered.connect(body_entered_on_wiper_area_x.bind(i))
 		disks[i].wiper.body_exited.connect(body_exited_wiper_area_x.bind(i))
@@ -48,6 +50,29 @@ func update_dissolve_shader_parameters() -> void:
 				var mat = mesh_instance.mesh.surface_get_material(mat_i)
 				mat.set("shader_parameter/intersector_pos", objects_being_wiped[body].global_position)
 				mat.set("shader_parameter/intersector_radius", 40)
+
+func set_wipeable_bodies_color() -> void:
+	for disk_id in range(disks.size()):
+		for body in find_all_wipeable_bodies(disks[disk_id]):
+			for mesh_instance in get_all_child_meshes(body):
+				mesh_instance.mesh.surface_get_material(0).set("shader_parameter/surface_albedo", object_colors[disk_id])
+			pass
+
+
+func find_all_wipeable_bodies(root_node: Node) -> Array[Node]:
+	var result_arr: Array[Node] = []
+	var stack: Array[Node] = []
+	stack.append(root_node)
+	while not stack.is_empty():
+		var curr_node = stack.pop_front()
+		if curr_node == null:
+			continue
+		for child in curr_node.get_children():
+			if child.is_in_group("wipeable"):
+				result_arr.append(child)
+			else:
+				stack.append_array(child.get_children())
+	return result_arr
 
 func disable_dissolve_shader(mesh_instance: MeshInstance3D) -> void:
 	var mat = mesh_instance.mesh.surface_get_material(0)
