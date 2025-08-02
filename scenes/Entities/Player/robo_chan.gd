@@ -35,9 +35,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	#apply visual to look to direction
 	if _next_direction.length() > 0.1:
-		#TODO
-		# var _temp_trans  = global_transform.looking_at(player_visual_node.global_position + Vector3(_input_direction.x,0,_input_direction.y),Vector3.UP)
-		# rotation = rotate_toward(global_transform.basis., _temp_trans.basis,delta * 1.2)
 		player_visual_node.look_at(player_visual_node.global_position + Vector3(_input_direction.x,0,_input_direction.y), Vector3(0, 1, 0))
 	#apply velocity and slide
 	move_and_slide()

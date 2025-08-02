@@ -8,41 +8,42 @@ class_name Portal_Level_Mechanic
 @export var _portal_active_area_mat : StandardMaterial3D
 @export var _portal_active_bogen_mat : StandardMaterial3D
 @export var _portal_mesh : MeshInstance3D
-###### base mats
+## base mats
 #Private Variables
 var _base_portal_active_area_mat : StandardMaterial3D
 var _base_portal_active_bogen_mat : StandardMaterial3D
-var _portal_is_enabled : bool = false
+@export var portal_is_enabled : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_door_mechanic.is_activated.connect(_on_door_mechanic_changed)
 	_base_portal_active_area_mat = _portal_mesh.mesh.surface_get_material(1)
 	_base_portal_active_bogen_mat = _portal_mesh.mesh.surface_get_material(2)
+	#set door active or deactive
+	_on_door_mechanic_changed(portal_is_enabled)
 
 func _on_door_mechanic_changed(_value : bool)->void:
 	if _value:
 		_turn_on_portal()
-	
-	else: 
+	else:
 		_turn_off_portal()
 
 func _turn_on_portal() ->void:
 	print("portal is open")
-	_portal_is_enabled = true
+	portal_is_enabled = true
 	_portal_mesh.mesh.surface_set_material(1,_portal_active_area_mat)
 	_portal_mesh.mesh.surface_set_material(2,_portal_active_bogen_mat)
 
 func _turn_off_portal() ->void:
 	print("portal closed")
-	_portal_is_enabled = false
+	portal_is_enabled = false
 	_portal_mesh.mesh.surface_set_material(1,_base_portal_active_area_mat)
 	_portal_mesh.mesh.surface_set_material(2,_base_portal_active_bogen_mat)
 
 
 
 func _on_finish_area_body_entered(_body: Node3D) -> void:
-	if _body.is_in_group("player") and _portal_is_enabled:
+	if _body.is_in_group("player") and portal_is_enabled:
 		print("Player finished")
 		# particle
 		_body.enable_particles()
