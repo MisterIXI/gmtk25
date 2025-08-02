@@ -1,0 +1,44 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://b0tkjrd8j33jr"]
+
+[ext_resource type="Shader" uid="uid://dclprbt7mjvem" path="res://scenes/shader/dissolve_albedo.gdshader" id="1_l7pgq"]
+
+[sub_resource type="Gradient" id="Gradient_xh2vt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wgwqq"]
+frequency = 0.0327
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_cbbqc"]
+width = 128
+height = 128
+seamless = true
+color_ramp = SubResource("Gradient_xh2vt")
+noise = SubResource("FastNoiseLite_wgwqq")
+
+[sub_resource type="Gradient" id="Gradient_ehu8v"]
+offsets = PackedFloat32Array(0.125506, 1)
+colors = PackedColorArray(0.111197, 0.111197, 0.111197, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j1oy1"]
+noise_type = 2
+frequency = 0.0248
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_2246y"]
+width = 256
+height = 256
+seamless = true
+seamless_blend_skirt = 0.291
+color_ramp = SubResource("Gradient_ehu8v")
+noise = SubResource("FastNoiseLite_j1oy1")
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_l7pgq")
+shader_parameter/expansion_max = -0.1
+shader_parameter/transition_in = -0.5
+shader_parameter/transition_out = 0.5
+shader_parameter/surface_albedo = Color(1, 1, 1, 0.670588)
+shader_parameter/dissolve_noise_texture = SubResource("NoiseTexture3D_cbbqc")
+shader_parameter/hue_noise_texture = SubResource("NoiseTexture3D_2246y")
+shader_parameter/intersector_pos = Vector3(0, 0, 0)
+shader_parameter/intersector_radius = 0.0

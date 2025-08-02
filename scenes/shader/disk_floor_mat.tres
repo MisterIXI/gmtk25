@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c15sissjl4mvn"]
+
+[ext_resource type="Shader" uid="uid://mwfv6hjcqfcg" path="res://scenes/shader/disk_floor_shader.gdshader" id="1_yiprc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yiprc")
+shader_parameter/fill_amount = 0.5550000263625
+shader_parameter/color1 = Color(0, 1, 0, 1)
+shader_parameter/color2 = Color(0.9607843, 0, 0, 1)
