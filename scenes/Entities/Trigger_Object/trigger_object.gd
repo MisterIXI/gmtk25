@@ -2,12 +2,13 @@ extends Node3D
 class_name Trigger_Button
 ### if Trigger changed state
 signal triggered(_value : bool)
-
+const ANIMATION_DURATION: float = 0.3
 @onready var _trigger_area : Area3D = $Trigger_Area
-@onready var trigger_button : MeshInstance3D = $Trigger_button/button
-@onready var _animation_player :AnimationPlayer = $AnimationPlayer
-
+@onready var trigger_button : MeshInstance3D = $ButtonTopMesh
+# @onready var _animation_player :AnimationPlayer = $AnimationPlayer
 # Private Variables
+var tween: Tween = null
+
 var _is_active : bool = false
 func _ready() -> void:
 	_trigger_area.body_entered.connect(_on_body_entered)
@@ -28,8 +29,26 @@ func turn_button(_value  : bool)->void:
 	# cast signal to mother
 	triggered.emit(_is_active, self)
 
+	var mat = trigger_button.mesh.surface_get_material(0)
 	if _is_active:
-		_animation_player.play("Pressed")
+		# _animation_player.play("Pressed")
 		# trigger signal to mother
+		if tween != null:
+			tween.kill()
+		tween = create_tween()
+		tween.tween_property(trigger_button, "position:y", 0,ANIMATION_DURATION)
+		tween.tween_callback(func():
+			mat.set("shader_parameter/surface_albedo", Color(0, 255, 0))
+			mat.set("shader_parameter/emission", Color(0, 170, 0))
+		)
 	else:
-		_animation_player.play("unpressed")
+		# _animation_player.play("unpressed")
+		if tween != null:
+			tween.kill()
+		tween = create_tween()
+		tween.tween_property(trigger_button, "position:y", 0.5,ANIMATION_DURATION)
+		tween.tween_callback(func():
+			mat.set("shader_parameter/surface_albedo", Color(255, 0, 0))
+			mat.set("shader_parameter/emission", Color(0, 0, 0))
+		)
+
