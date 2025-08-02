@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://ckagynukyr3mg"]
+[gd_scene load_steps=17 format=4 uid="uid://ckagynukyr3mg"]
 
 [ext_resource type="Script" uid="uid://b3qskjsnoqopa" path="res://scenes/Entities/Trigger_Object/trigger_object.gd" id="1_mnjmx"]
 [ext_resource type="Material" uid="uid://dmrcfgy42n7g3" path="res://scenes/Entities/Trigger_Object/Trigger_Object_Mat_Red.tres" id="2_nb3di"]
-[ext_resource type="PackedScene" uid="uid://ce20072karc3o" path="res://assets/interactable/Trigger_Ground.glb" id="2_y1hc6"]
 [ext_resource type="Material" uid="uid://c24cgvkeipq2b" path="res://scenes/Entities/Trigger_Object/Trigger_Object_Mat_Green.tres" id="3_mnjmx"]
+[ext_resource type="PackedScene" uid="uid://cwjwg83vi33f0" path="res://assets/interactable/Trigger_button_Ground.glb" id="5_cvlk5"]
 [ext_resource type="PackedScene" uid="uid://dufrxd64qc8mk" path="res://scenes/Entities/shield/shield.tscn" id="5_nb3di"]
+[ext_resource type="Material" uid="uid://dvplamnynxmqt" path="res://scenes/Entities/Trigger_Object/Shield_base.tres" id="6_gojjv"]
+[ext_resource type="Material" uid="uid://bfypmyiurcqnj" path="res://scenes/Entities/Trigger_Object/Shield_base_green.tres" id="7_0uv0q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvlk5"]
 
@@ -51,6 +53,130 @@ shadow_mesh = SubResource("ArrayMesh_3uyxv")
 [sub_resource type="SphereShape3D" id="SphereShape3D_y1hc6"]
 radius = 1.712
 
+[sub_resource type="Animation" id="Animation_gojjv"]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.582567, 0), Vector3(0, 0.028, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Shield:mesh:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_gojjv"), ExtResource("7_0uv0q")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("button:mesh:surface_0/material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_uuf0k"), ExtResource("3_mnjmx")]
+}
+
+[sub_resource type="Animation" id="Animation_0uv0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.582567, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Shield:mesh:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_gojjv")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("button:mesh:surface_0/material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_uuf0k")]
+}
+
+[sub_resource type="Animation" id="Animation_eriw0"]
+resource_name = "unpressed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.028, 0), Vector3(0, 0.582567, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Shield:mesh:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_0uv0q"), ExtResource("6_gojjv")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("button:mesh:surface_0/material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_mnjmx"), SubResource("StandardMaterial3D_uuf0k")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eriw0"]
+_data = {
+&"Pressed": SubResource("Animation_gojjv"),
+&"RESET": SubResource("Animation_0uv0q"),
+&"unpressed": SubResource("Animation_eriw0")
+}
+
 [node name="Trigger_Object" type="StaticBody3D" groups=["trigger"]]
 script = ExtResource("1_mnjmx")
 _trigger_red_button_mat = ExtResource("2_nb3di")
@@ -59,12 +185,11 @@ _trigger_green_button_mat = ExtResource("3_mnjmx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_cvlk5")
 
-[node name="Trigger_Ground" parent="." instance=ExtResource("2_y1hc6")]
-
 [node name="Shield" parent="." instance=ExtResource("5_nb3di")]
 transform = Transform3D(5.615, 0, 0, 0, 5.615, 0, 0, 0, 5.615, 0, -0.3664441, 0)
 
 [node name="Trigger_button" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582567, 0)
 
 [node name="button" type="MeshInstance3D" parent="Trigger_button"]
 transform = Transform3D(1.4545772, 0, 0, 0, 1.4545772, 0, 0, 0, 1.4545772, 0, 0, 0)
@@ -75,3 +200,12 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger_Area"]
 shape = SubResource("SphereShape3D_y1hc6")
+
+[node name="Trigger_button_Ground" parent="." instance=ExtResource("5_cvlk5")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Trigger_button")
+libraries = {
+&"": SubResource("AnimationLibrary_eriw0")
+}
+speed_scale = 4.0

@@ -1,7 +1,7 @@
 extends Node3D
 class_name Interacting_Door_Mechanic
 ## Contains all triggers from scene_tree, gets is_active
-@export var trigger_collection : Array[Node3D]
+@export var trigger_collection : Array[Trigger_Button]
 
 @onready var interact_area : Area3D = $Interacting_Area
 @onready var _animation_player : AnimationPlayer = $AnimationPlayer
