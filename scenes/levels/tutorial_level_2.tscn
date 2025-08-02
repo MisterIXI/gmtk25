@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=3 uid="uid://csh06jwa6ggeh"]
+
+[ext_resource type="Script" uid="uid://dgcceg4n5yq2p" path="res://scenes/wiper_mechanic/time_wiper.gd" id="1_eqdw5"]
+[ext_resource type="PackedScene" uid="uid://7b1bpwywy5xq" path="res://scenes/level_entities/special_entities/level_disk.tscn" id="2_hlfq5"]
+[ext_resource type="PackedScene" uid="uid://4pwh4u8tmwu8" path="res://scenes/Entities/portal/portal_base.tscn" id="3_0wjh6"]
+[ext_resource type="PackedScene" uid="uid://c0f06ismxwadk" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.tscn" id="4_y3q6f"]
+[ext_resource type="PackedScene" uid="uid://dalxmm5xn4831" path="res://scenes/Entities/Camera/camera_game_scene.tscn" id="5_16hjw"]
+[ext_resource type="PackedScene" uid="uid://b8jfqxna2kd20" path="res://scenes/level_entities/basic_block_wall.tscn" id="5_hlfq5"]
+[ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="6_0wjh6"]
+[ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="6_f0bey"]
+
+[node name="tutorial_level_2" type="Node3D"]
+
+[node name="TimeWiper" type="Node" parent="." node_paths=PackedStringArray("disks")]
+script = ExtResource("1_eqdw5")
+disks = [NodePath("../Disk0"), NodePath("../Disk1")]
+colors = Array[Color]([Color(0.929412, 0.682353, 0.286275, 1), Color(0.819608, 0.286275, 0.356863, 1), Color(0, 0.47451, 0.54902, 1), Color(0.639216, 0.788235, 0.658824, 1), Color(0.215686, 0.117647, 0.188235, 1)])
+object_colors = Array[Color]([Color(0.574563, 0.402002, 0.102642, 1), Color(0.460413, 0.122636, 0.173988, 1), Color(7.94157e-07, 0.302315, 0.352594, 1), Color(0.320819, 0.450246, 0.340053, 1), Color(0.215686, 0.117647, 0.188235, 1)])
+metadata/_custom_type_script = "uid://dgcceg4n5yq2p"
+
+[node name="Disk0" parent="." instance=ExtResource("2_hlfq5")]
+
+[node name="Portal" parent="Disk0" node_paths=PackedStringArray("_door_mechanic") instance=ExtResource("3_0wjh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.40121, 1, 13.357)
+_door_mechanic = NodePath("../Trigger_Door_Mechanic")
+portal_is_enabled = true
+
+[node name="Trigger_Door_Mechanic" parent="Disk0" instance=ExtResource("4_y3q6f")]
+transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)
+
+[node name="BasicBlockWall" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="BasicBlockWall8" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="BasicBlockWall9" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="BasicBlockWall10" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="BasicBlockWall11" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="BasicBlockWall12" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="BasicBlockWall13" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="BasicBlockWall14" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="BasicBlockWall2" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="BasicBlockWall15" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="BasicBlockWall16" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="BasicBlockWall17" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="BasicBlockWall18" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="BasicBlockWall19" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="BasicBlockWall20" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="BasicBlockWall21" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="BasicBlockWall3" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="BasicBlockWall4" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+
+[node name="BasicBlockWall5" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="BasicBlockWall6" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
+
+[node name="BasicBlockWall7" parent="Disk0" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="Robo_Chan" parent="Disk0" instance=ExtResource("6_0wjh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44181, 0, 13.1873)
+
+[node name="Disk1" parent="." instance=ExtResource("2_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+disk_id = 1
+
+[node name="BasicBlockWall" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="BasicBlockWall8" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="BasicBlockWall9" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="BasicBlockWall10" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="BasicBlockWall11" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+
+[node name="BasicBlockWall12" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="BasicBlockWall13" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="BasicBlockWall14" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="BasicBlockWall2" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="BasicBlockWall3" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="BasicBlockWall4" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="BasicBlockWall5" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="BasicBlockWall6" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12)
+
+[node name="BasicBlockWall7" parent="Disk1" instance=ExtResource("5_hlfq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.923404, 0.331038, -0.194264, -0.040033, 0.586425, 0.809014, 0.381736, -0.73927, 0.55476, -4.13683, 5.00266, 0)
+
+[node name="Camera3D" parent="." instance=ExtResource("5_16hjw")]
+transform = Transform3D(1, 0, 0, 0, 0.485283, 0.874357, 0, -0.874357, 0.485283, 0, 17, 13.5)
+
+[node name="Skybox" parent="." instance=ExtResource("6_f0bey")]
