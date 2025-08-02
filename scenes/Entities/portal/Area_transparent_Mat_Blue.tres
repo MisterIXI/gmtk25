@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dho7n75q1gysx"]
+
+[resource]
+resource_name = "Portal_Lift"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.24450472, 0.28521204, 0.9063747, 0.1417323)
+roughness = 0.5

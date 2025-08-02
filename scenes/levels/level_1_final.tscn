@@ -145,7 +145,7 @@ metadata/_custom_type_script = "uid://dgcceg4n5yq2p"
 [node name="Disk0" parent="." instance=ExtResource("2_536mm")]
 
 [node name="Robo_Chan" parent="Disk0" instance=ExtResource("3_mcw8d")]
-transform = Transform3D(0.36112747, 0, -0.34581348, 0, 0.5, 0, 0.34581348, 0, 0.36112747, -5.8652906, 0.64391106, 4.4504495)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.8652906, 0.64391106, 4.4504495)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Disk0" groups=["wipeable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.398, 1, 0)
@@ -195,15 +195,16 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.5
 [node name="Room_Base" parent="Disk0" instance=ExtResource("6_htj81")]
 transform = Transform3D(1.325, 0, 0, 0, 1.325, 0, 0, 0, 1.325, 0, 0, 0)
 
-[node name="Portal" parent="Disk0" instance=ExtResource("6_38rba")]
+[node name="Portal" parent="Disk0" node_paths=PackedStringArray("_door_mechanic") instance=ExtResource("6_38rba")]
 transform = Transform3D(0.06704305, 0, -1.998876, 0, 2, 0, 1.998876, 0, 0.06704305, -2.8377175, 0, 7.589899)
+_door_mechanic = NodePath("../Trigger_Door_Mechanic")
 
 [node name="Trigger_Door_Mechanic" parent="Disk0" node_paths=PackedStringArray("trigger_collection") instance=ExtResource("7_q8k65")]
 transform = Transform3D(0.29999998, 0, 0, 0, -1.3113416e-08, -0.29999998, 0, 0.29999998, -1.3113416e-08, 0, 2.2547603, -11.23469)
 trigger_collection = [NodePath("../Trigger_Object")]
 
 [node name="Trigger_Object" parent="Disk0" instance=ExtResource("8_axx3n")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -5.9432, 0.1790402, 6.396221)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -4.434893, 0.5097897, 6.4914303)
 
 [node name="Disk1" parent="." instance=ExtResource("2_536mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.93535, 0, -1.1258316)
@@ -233,6 +234,6 @@ transform = Transform3D(0.615, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 transform = Transform3D(0.923404, 0.331038, -0.194264, -0.040033, 0.586425, 0.809014, 0.381736, -0.73927, 0.55476, -4.13683, 5.00266, 0)
 
 [node name="Camera3D" parent="." instance=ExtResource("7_536mm")]
-transform = Transform3D(0.9982408, -0.051982105, -0.028515292, 0.053179845, 0.5723734, 0.8182671, -0.026213847, -0.818344, 0.5741309, 0.3083026, 14.223074, 10.126734)
+transform = Transform3D(1, 0, 0, 0, 0.63742405, 0.7705134, 0, -0.77051336, 0.6374242, 0.3083026, 14.223074, 10.126734)
 
 [node name="Skybox" parent="." instance=ExtResource("8_mcw8d")]

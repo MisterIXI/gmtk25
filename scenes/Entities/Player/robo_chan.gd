@@ -1,6 +1,6 @@
 extends CharacterBody3D
 @onready var player_visual_node : Node3D = $robo_chan_model
-
+@onready var _particle_system : CPUParticles3D = $CPUParticles3D
 const SPEED : float = 4.5
 const JUMP_VELOCITY : float = 2.5
 const ACCELERATION : float  = 8
@@ -41,3 +41,6 @@ func _physics_process(delta: float) -> void:
 		player_visual_node.look_at(player_visual_node.global_position + Vector3(_input_direction.x,0,_input_direction.y), Vector3(0, 1, 0))
 	#apply velocity and slide
 	move_and_slide()
+
+func enable_particles() ->void: 
+	_particle_system.emitting  =true
