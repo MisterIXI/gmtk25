@@ -1,0 +1,265 @@
+[gd_scene load_steps=30 format=3 uid="uid://v6gkslk8gtgo"]
+
+[ext_resource type="Script" uid="uid://cmj2f427itvam" path="res://scenes/levels/end_scene/free_camera.gd" id="1_0c7tp"]
+[ext_resource type="PackedScene" uid="uid://qcmxhrw0nra1" path="res://assets/robo_chan/robo_chan_model.glb" id="2_0c7tp"]
+[ext_resource type="Texture2D" uid="uid://bixfuw28r27jt" path="res://assets/textures/skybox/main.png" id="2_6ijkr"]
+[ext_resource type="Script" uid="uid://dn5vx26bxfund" path="res://scenes/Entities/Background/world_environment.gd" id="3_dogtw"]
+[ext_resource type="PackedScene" uid="uid://dkosl4bedxi8v" path="res://assets/spaceship/spaceship.glb" id="3_fbjc6"]
+[ext_resource type="Material" uid="uid://6b8vvh2wmyp0" path="res://scenes/Entities/Background/sun.tres" id="4_5adso"]
+[ext_resource type="PackedScene" uid="uid://bclmrefdub3v7" path="res://assets/spaceship/spaceship_base.glb" id="4_6ijkr"]
+[ext_resource type="PackedScene" uid="uid://cq3jxi4edpjpn" path="res://assets/spaceship/spaceship_boost.glb" id="5_dogtw"]
+[ext_resource type="PackedScene" uid="uid://ds1peeyxcht0t" path="res://assets/spaceship/spaceship_boost_blades.glb" id="6_5adso"]
+[ext_resource type="PackedScene" uid="uid://domvys0aspq0t" path="res://assets/spaceship/spaceship_cockpit.glb" id="7_7yecf"]
+[ext_resource type="PackedScene" uid="uid://c2x2mnf077rcf" path="res://assets/spaceship/spaceship_top.glb" id="8_85e2x"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3lrgf"]
+panorama = ExtResource("2_6ijkr")
+
+[sub_resource type="Sky" id="Sky_uk2ta"]
+sky_material = SubResource("PanoramaSkyMaterial_3lrgf")
+
+[sub_resource type="Environment" id="Environment_60md7"]
+background_mode = 2
+sky = SubResource("Sky_uk2ta")
+ambient_light_source = 3
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7yecf"]
+transparency = 1
+albedo_color = Color(0.362829, 0.362829, 0.362829, 1)
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_85e2x"]
+material = SubResource("StandardMaterial3D_7yecf")
+radius = 0.1
+height = 0.25
+
+[sub_resource type="Curve" id="Curve_uk2ta"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0.00657894, 1.64045), 0.0, 0.0, 0, 0, Vector2(1, 1.06742), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_60md7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.976974, 0), -4.05603, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_1byjt"]
+material = ExtResource("4_5adso")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajwgb"]
+transparency = 1
+specular_mode = 1
+albedo_color = Color(1, 0.447059, 0, 0.0156863)
+roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_6g72s"]
+material = SubResource("StandardMaterial3D_ajwgb")
+radial_segments = 32
+rings = 16
+
+[sub_resource type="Curve" id="Curve_inrix"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.993421, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_sjc1p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hs6up"]
+resource_name = "flying"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.06667, 2.66667, 3.9, 4.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.33, 0.17, 0), Vector3(0, -0.31, 0), Vector3(0, 0, 0.415), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqg4a"]
+_data = {
+&"RESET": SubResource("Animation_sjc1p"),
+&"flying": SubResource("Animation_hs6up")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ijkr"]
+transparency = 1
+albedo_color = Color(1, 0.495744, 0, 1)
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 0.495744, 0, 1)
+emission_energy_multiplier = 1.85
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="SphereMesh" id="SphereMesh_dogtw"]
+material = SubResource("StandardMaterial3D_6ijkr")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Curve" id="Curve_5adso"]
+_limits = [0.0, 1.0, 0.0, 3.0]
+_data = [Vector2(0.00967743, 0.280899), 0.0, 0.0, 0, 0, Vector2(2.67097, 0.606742), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7yecf"]
+offsets = PackedFloat32Array(0, 0.584507, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="End_Scene" type="Node3D"]
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 2.85102, 0)
+text = "Thanks For Playing <3"
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.358522, 2.219, -5.48469)
+script = ExtResource("1_0c7tp")
+target = NodePath("../Camera_Target")
+distance = 20.0
+
+[node name="Skybox" type="Node3D" parent="."]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, -0.358522, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Skybox"]
+environment = SubResource("Environment_60md7")
+script = ExtResource("3_dogtw")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Skybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1167, 0, 0)
+transparency = 0.5
+cast_shadow = 0
+amount = 1000
+lifetime = 10.0
+randomness = 1.0
+lifetime_randomness = 0.33
+mesh = SubResource("SphereMesh_85e2x")
+emission_shape = 1
+emission_sphere_radius = 128.0
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(-111, 0, 0)
+initial_velocity_max = 55.0
+linear_accel_curve = SubResource("Curve_uk2ta")
+radial_accel_min = -1.0
+radial_accel_max = 1.0
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+damping_max = 0.5
+angle_max = 720.0
+scale_amount_min = 0.2
+scale_amount_curve = SubResource("Curve_60md7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Skybox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.7442, -35.4917, -51.3303)
+mesh = SubResource("SphereMesh_1byjt")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Skybox/MeshInstance3D"]
+transparency = 0.93
+cast_shadow = 0
+amount = 25
+mesh = SubResource("SphereMesh_6g72s")
+spread = 180.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_max = 1.0
+damping_max = 0.5
+angle_max = 720.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_inrix")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Skybox"]
+light_color = Color(1, 0.739841, 0.581959, 1)
+light_energy = 16.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../end_craft")
+libraries = {
+&"": SubResource("AnimationLibrary_nqg4a")
+}
+autoplay = "flying"
+speed_scale = 5.0
+
+[node name="Camera_Target" type="Node3D" parent="."]
+
+[node name="end_craft" type="Node3D" parent="."]
+
+[node name="robo_chan_model" parent="end_craft" instance=ExtResource("2_0c7tp")]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, -0.358522, 0, 0)
+
+[node name="spaceship" parent="end_craft" instance=ExtResource("3_fbjc6")]
+
+[node name="spaceship_base" parent="end_craft" instance=ExtResource("4_6ijkr")]
+
+[node name="spaceship_boost" parent="end_craft" instance=ExtResource("5_dogtw")]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="end_craft/spaceship_boost"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77491, 0.951776, -2.10547)
+transparency = 0.97
+cast_shadow = 0
+amount = 100
+lifetime = 0.3
+mesh = SubResource("SphereMesh_dogtw")
+direction = Vector3(-1, 0, 0)
+spread = 27.11
+flatness = 1.0
+gravity = Vector3(-55, -2, 0)
+initial_velocity_max = 55.0
+damping_min = 0.2
+damping_max = 0.5
+scale_amount_curve = SubResource("Curve_5adso")
+color_initial_ramp = SubResource("Gradient_7yecf")
+hue_variation_max = 1.0
+anim_offset_max = 1.0
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="end_craft/spaceship_boost"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77491, 0.951776, 2.27387)
+transparency = 0.97
+cast_shadow = 0
+amount = 100
+lifetime = 0.3
+mesh = SubResource("SphereMesh_dogtw")
+direction = Vector3(-1, 0, 0)
+spread = 27.11
+flatness = 1.0
+gravity = Vector3(-55, -2, 0)
+initial_velocity_max = 55.0
+damping_min = 0.2
+damping_max = 0.5
+scale_amount_curve = SubResource("Curve_5adso")
+color_initial_ramp = SubResource("Gradient_7yecf")
+hue_variation_max = 1.0
+anim_offset_max = 1.0
+
+[node name="spaceship_boost_blades" parent="end_craft" instance=ExtResource("6_5adso")]
+
+[node name="spaceship_cockpit" parent="end_craft" instance=ExtResource("7_7yecf")]
+
+[node name="spaceship_top" parent="end_craft" instance=ExtResource("8_85e2x")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="end_craft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.776865, 2.9825, 0)
+light_energy = 3.826
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="end_craft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.602058, -1.32274, 0)
+light_energy = 3.826
