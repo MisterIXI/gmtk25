@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bvfmgpoq6ud05"]
+[gd_scene load_steps=0 format=3 uid="uid://bvfmgpoq6ud05"]
 
 [node name="Button_Level_0_tut_1" type="Button"]
 custom_minimum_size = Vector2(200, 150)

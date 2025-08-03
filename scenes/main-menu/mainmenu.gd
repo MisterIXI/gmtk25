@@ -13,13 +13,13 @@ extends Control
 var active_tween: Tween
 var _is_game_paused: bool = false
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("escape") and !_is_game_paused:
-		#Pause Game
-		print("PAUSED GAME")
-		#click sound
-		SoundManager.playSound(SoundManager.SOUND.CLICK)
-		_on_button_paused_game_pressed()
+# func _input(event: InputEvent) -> void:
+# 	if event.is_action_pressed("escape") and !_is_game_paused:
+# 		#Pause Game
+# 		print("PAUSED GAME")
+# 		#click sound
+# 		SoundManager.playSound(SoundManager.SOUND.CLICK)
+# 		_on_button_paused_game_pressed()
 
 func _init():
 	hide()
@@ -197,3 +197,13 @@ func open_menu() -> void:
 	show()
 	main_menu_buttons.modulate = Color.WHITE
 	main_menu_buttons.show()
+
+
+func update_level_beaten_states(status_arr: Array[bool]) -> void:
+	print("states: ", status_arr)
+	if not is_inside_tree():
+		await tree_entered
+	var children = level_options._grid_container.get_children()
+	for i in range(children.size()):
+		children[i].modulate = Color.GREEN if status_arr[i] else Color.WHITE
+	pass

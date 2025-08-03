@@ -18,5 +18,5 @@ func _create_level(array_level_items : Array[PackedScene]) ->void:
 		var _new_button = _packed_scene_button_base.instantiate() as Button
 		_grid_container.add_child(_new_button)
 		_new_button.text = "Level "+ str(i+1)
-		_new_button.pressed.connect(LevelManager._start_new_scene.bind(array_level_items[i]))
+		_new_button.pressed.connect(LevelManager._start_new_scene.bind(array_level_items[i], i))
 	

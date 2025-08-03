@@ -29,7 +29,6 @@ object_colors = Array[Color]([Color(0.310617, 0.310617, 0.310617, 1), Color(0.47
 [node name="Portal" parent="Disk0" node_paths=PackedStringArray("_door_mechanic") groups=["wipeable"] instance=ExtResource("3_ppbiy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66193, 1, 11.723)
 _door_mechanic = NodePath("../Trigger_Door_Mechanic")
-portal_is_enabled = true
 
 [node name="Trigger_Door_Mechanic" parent="Disk0" node_paths=PackedStringArray("trigger_collection") instance=ExtResource("4_c6rld")]
 transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)

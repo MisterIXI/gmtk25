@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://diukqi3y4u8a5"]
+[gd_scene load_steps=13 format=3 uid="uid://bbvvfrrl6yfc1"]
 
 [ext_resource type="PackedScene" uid="uid://ckp18f4fg40ye" path="res://scenes/level_entities/special_entities/time_wiper.tscn" id="1_ypi4k"]
 [ext_resource type="PackedScene" uid="uid://7b1bpwywy5xq" path="res://scenes/level_entities/special_entities/level_disk.tscn" id="2_cw75u"]
@@ -25,7 +25,6 @@ object_colors = Array[Color]([Color(0.490289, 0.53154, 9.62615e-07, 1), Color(0.
 [node name="Portal" parent="Disk0" node_paths=PackedStringArray("_door_mechanic") groups=["wipeable"] instance=ExtResource("3_gkpor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -4)
 _door_mechanic = NodePath("../Trigger_Door_Mechanic")
-portal_is_enabled = true
 
 [node name="Trigger_Door_Mechanic" parent="Disk0" node_paths=PackedStringArray("trigger_collection") instance=ExtResource("4_a0uur")]
 transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)
