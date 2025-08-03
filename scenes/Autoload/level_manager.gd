@@ -11,6 +11,12 @@ var current_index : int = 0
 func _ready() -> void:
 	pass # Replace with function body.
 
+
+func _input(event):
+	if event is InputEventKey:
+		if event.is_pressed() and event.keycode == KEY_R:
+			reload_current_scene()
+
 ### this function will switch in level selection scene
 func on_level_change(index : int) ->void:
 
@@ -38,3 +44,6 @@ func _start_new_scene(_scene : PackedScene) ->void:
 	get_tree().change_scene_to_packed.call_deferred(_scene)
 	current_scene = get_tree().current_scene
 	level_changed.emit()
+
+func reload_current_scene() -> void:
+	get_tree().reload_current_scene.call_deferred()
