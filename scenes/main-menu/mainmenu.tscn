@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5t2jyubv6nib"]
+[gd_scene load_steps=18 format=3 uid="uid://b5t2jyubv6nib"]
 
 [ext_resource type="Script" uid="uid://dm50r0agt5v6n" path="res://scenes/main-menu/mainmenu.gd" id="1_ngnu3"]
 [ext_resource type="Script" uid="uid://ck27ew68cm2ii" path="res://scenes/main-menu/clock_background.gd" id="1_qs7d8"]
+[ext_resource type="PackedScene" uid="uid://6gf4lvwgbxde" path="res://scenes/levels/main_menu.tscn" id="2_4b1hm"]
 [ext_resource type="PackedScene" uid="uid://cwms5tpukff7t" path="res://scenes/main-menu/user_options.tscn" id="3_m4j2j"]
 [ext_resource type="StyleBox" uid="uid://bobnyeygn5orx" path="res://scenes/UI/stylebox_start.tres" id="4_kil4e"]
-[ext_resource type="Script" uid="uid://3n2ba47ilwja" path="res://scenes/main-menu/level_transition.gd" id="4_viftl"]
+[ext_resource type="Script" path="res://scenes/main-menu/level_transition.gd" id="4_viftl"]
 [ext_resource type="StyleBox" uid="uid://c8ntwmpj30y61" path="res://scenes/UI/stylebox_resume.tres" id="5_m5esn"]
 [ext_resource type="StyleBox" uid="uid://wl6y4unkyaer" path="res://scenes/UI/stylebox_alter.tres" id="6_m5esn"]
 [ext_resource type="StyleBox" uid="uid://cig4aayky7nmg" path="res://scenes/UI/stylebox_levelsel.tres" id="7_fif0i"]
@@ -72,7 +73,7 @@ colors = PackedColorArray(0.333333, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ngnu3"]
 gradient = SubResource("Gradient_qs7d8")
 
-[node name="MainMenu" type="Control"]
+[node name="Main_Menu" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -81,6 +82,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ngnu3")
+menu_scene = ExtResource("2_4b1hm")
 
 [node name="Level_Transition" type="Control" parent="."]
 layout_mode = 1

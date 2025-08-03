@@ -1,6 +1,6 @@
 [gd_scene load_steps=62 format=4 uid="uid://6gf4lvwgbxde"]
 
-[ext_resource type="Script" uid="uid://d3q6hnmupf608" path="res://scenes/levels/main_menu.gd" id="1_wgqco"]
+[ext_resource type="Script" uid="uid://b7ch1h3n2fmgx" path="res://scenes/main-menu/menu_scene.gd" id="1_wgqco"]
 [ext_resource type="PackedScene" uid="uid://cc485cpnp1sby" path="res://assets/fake_god_ray/cone_mesh.glb" id="2_keln3"]
 [ext_resource type="PackedScene" uid="uid://cyt6tr42wg6ak" path="res://scenes/main-menu/planet_cpu_particle.tscn" id="3_ohdsy"]
 [ext_resource type="Material" uid="uid://70rr7rb5612v" path="res://assets/textures/skybox/star_dust_particle_material.tres" id="4_crctu"]
