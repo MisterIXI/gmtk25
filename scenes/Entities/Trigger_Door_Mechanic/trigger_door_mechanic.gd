@@ -4,7 +4,7 @@ class_name Interacting_Door_Mechanic
 signal is_activated(_value :bool)
 
 ## Contains all triggers from scene_tree, gets is_active
-@export var trigger_collection : Array[Trigger_Button]
+@export var trigger_collection : Array[Node]
 
 @onready var _animation_player : AnimationPlayer = $AnimationPlayer
 #Private Variable
