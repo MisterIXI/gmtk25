@@ -6,9 +6,12 @@ extends Node
 ## current wipe angle in rad
 @export var colors: Array[Color]
 @export var object_colors: Array[Color]
+@export var stage_speeds: Vector3 = Vector3(0, 30, 150)
 var progress: float
 var curr_start_id: int = 0
 var wipe_angle: float = 0.0
+
+@export var texture_rects_speed_ui: Array[Control] = []
 
 var objects_being_wiped: Dictionary[Node3D, MeshInstance3D] = {}
 @onready var disk_count: int = disks.size()
@@ -32,6 +35,41 @@ func _physics_process(delta):
 	mat.set("shader_parameter/color2", colors[curr_start_id])
 	mat.set("shader_parameter/color1", colors[(curr_start_id + 1) % disk_count])
 	update_dissolve_shader_parameters()
+
+func _input(event):
+	if event is InputEventKey:
+		var key:= event as InputEventKey
+		# discard key_up events
+		if not key.is_pressed():
+			return
+		if key.keycode == KEY_1 or key.keycode == KEY_SPACE:
+			if rotation_speed_deg == 0:
+				change_speed_to(1)
+			else:
+				change_speed_to(0)
+		if key.keycode == KEY_2:
+			change_speed_to(1)
+		if key.keycode == KEY_3:
+			change_speed_to(2)
+
+func change_speed_to(id: int):
+	if id < 0 or id > 2:
+		push_warning("Requested speed id OOB! Discarding request...")
+		return
+	rotation_speed_deg = stage_speeds[id]
+	for tex in texture_rects_speed_ui:
+		tex.modulate = Color.WHITE
+	texture_rects_speed_ui[id].modulate = Color.SKY_BLUE
+	texture_rects_speed_ui[id+3].modulate = Color.SKY_BLUE
+	match id:
+		0:
+			SoundManager.playSound(SoundManager.SOUND.PAUSE)
+		1:
+			SoundManager.playSound(SoundManager.SOUND.PLAY)
+		2:
+			SoundManager.playSound(SoundManager.SOUND.FF)
+		_:
+			pass
 
 func get_all_child_meshes(node: Node3D) -> Array[MeshInstance3D]:
 	var result: Array[MeshInstance3D] = []

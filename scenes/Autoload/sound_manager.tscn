@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqn7s6dysrrtl"]
+[gd_scene load_steps=11 format=3 uid="uid://cqn7s6dysrrtl"]
 
 [ext_resource type="Script" uid="uid://ddl544xaguuna" path="res://scenes/Autoload/sound_manager.gd" id="1_y8ceg"]
 [ext_resource type="AudioStream" uid="uid://d15ykfho6ct0m" path="res://assets/sound_files/ambient-space-arpeggio-350710.mp3" id="2_av6v2"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://b5d5gm7xc8hsl" path="res://assets/sound_files/click.mp3" id="4_20k5e"]
 [ext_resource type="AudioStream" uid="uid://du8bnsmjrn255" path="res://assets/sound_files/wiper_sound.mp3" id="4_s42s3"]
 [ext_resource type="AudioStream" uid="uid://c0vwdmyk71roo" path="res://assets/sound_files/ui_game_win.mp3" id="6_nn7u2"]
+[ext_resource type="AudioStream" uid="uid://cu4ld2xslv7vq" path="res://assets/sound_files/sfx-pause.mp3" id="8_r72l7"]
+[ext_resource type="AudioStream" uid="uid://dv3htllavgr31" path="res://assets/sound_files/sfx-play.mp3" id="9_63hu5"]
+[ext_resource type="AudioStream" uid="uid://c803hvehht3wv" path="res://assets/sound_files/sfx-ff.mp3" id="10_fvqbe"]
 
 [node name="Sound_Manager" type="Node3D"]
 script = ExtResource("1_y8ceg")
@@ -36,4 +39,16 @@ bus = &"SFX"
 
 [node name="Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_20k5e")
+bus = &"SFX"
+
+[node name="SpeedPause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_r72l7")
+bus = &"SFX"
+
+[node name="SpeedPlay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_63hu5")
+bus = &"SFX"
+
+[node name="SpeedFF" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_fvqbe")
 bus = &"SFX"
