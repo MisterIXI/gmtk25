@@ -34,14 +34,5 @@ func drop_effect(_drop_position : Vector3) ->void:
 	_is_holding = false
 	#check if button is nearby
 	var _result : bool = false
-	for x in _tempbuttons:
-		if x.global_position.distance_to(global_position)< 3:
-		#set interactable position to button
-			print("fixed crate position")
-			global_position = x.global_position
-			_result = true
-		else:
-			_result = false
-
-	if !_result:
-		global_position = _drop_position + Vector3(0,0.5,0)
+	
+	global_position = _drop_position + Vector3(0,0.5,0)

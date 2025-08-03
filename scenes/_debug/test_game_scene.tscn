@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bkgctf7xxl8wt" path="res://scenes/UI/Interacting_manager/interacting_manger.tscn" id="1_kjmys"]
 [ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="2_bdigk"]
 [ext_resource type="PackedScene" uid="uid://dalxmm5xn4831" path="res://scenes/Entities/Camera/camera_game_scene.tscn" id="3_2s5yi"]
-[ext_resource type="PackedScene" uid="uid://cu04utelbwhjk" path="res://scenes/Entities/Interactable_Objects/interacting_crate.tscn" id="3_ch601"]
+[ext_resource type="PackedScene" uid="uid://cu04utelbwhjk" path="res://scenes/level_entities/interacting_crate.tscn" id="3_ch601"]
 [ext_resource type="PackedScene" uid="uid://b4xpdq4v0culh" path="res://scenes/Entities/room/room_base.tscn" id="5_lvg0c"]
-[ext_resource type="PackedScene" uid="uid://ckagynukyr3mg" path="res://scenes/Entities/Trigger_Object/trigger_object.tscn" id="6_siig8"]
+[ext_resource type="PackedScene" uid="uid://ckagynukyr3mg" path="res://scenes/level_entities/trigger_object.tscn" id="6_siig8"]
 [ext_resource type="PackedScene" uid="uid://c0f06ismxwadk" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.tscn" id="8_i65vk"]
 
 [node name="Test_Game_Scene" type="Node3D"]

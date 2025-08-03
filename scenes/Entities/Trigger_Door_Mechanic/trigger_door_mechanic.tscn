@@ -362,4 +362,4 @@ surface_material_override/2 = ExtResource("3_gw2cc")
 libraries = {
 &"": SubResource("AnimationLibrary_8sfki")
 }
-autoplay = "RESET"
+autoplay = "activate_red"
