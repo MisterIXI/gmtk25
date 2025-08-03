@@ -102,7 +102,6 @@ func is_last_disk(disk_id: int) -> bool:
 func next_disk(disk_id: int) -> int:
 	return (disk_id + 1) % disks.size()
 
-# SoundManager.playSound3D(SoundManager.WIPER, global_position)
 
 func body_entered_on_wiper_area_x(body: Node3D, disk_id: int) -> void:
 	if body.is_in_group("wipeable") and not body in objects_being_wiped:
@@ -111,6 +110,8 @@ func body_entered_on_wiper_area_x(body: Node3D, disk_id: int) -> void:
 			move_node_to_disk(body, 0)
 		else:
 			objects_being_wiped[body] = disks[disk_id].dissolve_indicator
+			if disk_id == 0:
+				SoundManager.playSound3D(SoundManager.SOUND.WIPER, body.global_position)
 		if body is RigidBody3D:
 			body.freeze = true
 		# if disk_id + 1 == disk_count:
@@ -118,6 +119,8 @@ func body_entered_on_wiper_area_x(body: Node3D, disk_id: int) -> void:
 
 func body_exited_wiper_area_x(body: Node3D, disk_id: int) -> void:
 	if body in objects_being_wiped:
+		if disk_id == 0:
+			SoundManager.stop_wiper_sound()
 		# check if last disk -> should not trigger as all is already handled
 		if is_last_disk(disk_id):
 			return
