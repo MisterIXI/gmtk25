@@ -1,5 +1,6 @@
-[gd_scene load_steps=61 format=4 uid="uid://6gf4lvwgbxde"]
+[gd_scene load_steps=62 format=4 uid="uid://6gf4lvwgbxde"]
 
+[ext_resource type="Script" uid="uid://b7ch1h3n2fmgx" path="res://scenes/main-menu/menu_scene.gd" id="1_wgqco"]
 [ext_resource type="PackedScene" uid="uid://cc485cpnp1sby" path="res://assets/fake_god_ray/cone_mesh.glb" id="2_keln3"]
 [ext_resource type="PackedScene" uid="uid://cyt6tr42wg6ak" path="res://scenes/main-menu/planet_cpu_particle.tscn" id="3_ohdsy"]
 [ext_resource type="Material" uid="uid://70rr7rb5612v" path="res://assets/textures/skybox/star_dust_particle_material.tres" id="4_crctu"]
@@ -703,6 +704,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.966292), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="Main_Menu" type="Node3D"]
+script = ExtResource("1_wgqco")
 
 [node name="Room_Base" type="Node3D" parent="."]
 transform = Transform3D(2.86151, -0.900969, 0, 0.900969, 2.86151, 0, 0, 0, 3, -1.34432, 1.48415, 0)

@@ -24,9 +24,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -3)
 _door_mechanic = NodePath("../Trigger_Door_Mechanic")
 portal_is_enabled = true
 
-[node name="Trigger_Door_Mechanic" parent="Disk0" node_paths=PackedStringArray("trigger_collection") instance=ExtResource("4_0v4lm")]
+[node name="Trigger_Door_Mechanic" parent="Disk0" instance=ExtResource("4_0v4lm")]
 transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)
-trigger_collection = [null]
 
 [node name="BasicBlockWall" parent="Disk0" instance=ExtResource("5_1sjbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

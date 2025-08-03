@@ -54,5 +54,5 @@ func _on_finish_area_body_entered(_body: Node3D) -> void:
 		tween.tween_property(_body, "position", Vector3(0, 100,0), 5)
 		tween.set_ease(Tween.EASE_IN)
 		## SIGNAL LEVEL FINISHED
-		LevelManager.on_next_level_change()
+		get_tree().create_timer(1.0).timeout.connect(LevelManager.on_next_level_change)
 

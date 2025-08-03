@@ -8,6 +8,8 @@ extends Control
 @onready var _start_button : Button =$Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button
 @onready var _resume_button : Button  =$Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button4
 
+@export var menu_scene : PackedScene
+
 var active_tween: Tween
 var _is_game_paused: bool = false
 
@@ -19,9 +21,10 @@ func _input(event: InputEvent) -> void:
 		SoundManager.playSound(SoundManager.SOUND.CLICK)
 		_on_button_paused_game_pressed()
 
+func _init():
+	hide()
+
 func _ready() -> void:
-	# if get_tree().root.name != "Main_Menu":
-	# 	hide()
 	#debugging brought to you by 
 	#GEMINI :D
 	if not main_menu_buttons:
@@ -183,3 +186,14 @@ func close_menu() ->void:
 	get_tree().paused = false
 	#click sound
 	SoundManager.playSound(SoundManager.SOUND.CLICK)
+
+func open_menu() -> void:
+	menu_control.show()
+	user_options.visible = false
+	level_options.visible = false
+	_is_game_paused = false
+	get_tree().paused = false
+	SoundManager.playSound(SoundManager.SOUND.CLICK)
+	show()
+	main_menu_buttons.modulate = Color.WHITE
+	main_menu_buttons.show()

@@ -124,6 +124,11 @@ func disable_dissolve_shader(mesh_instance: MeshInstance3D) -> void:
 	mat.set("shader_parameter/intersector_radius", 0)
 
 func move_node_to_disk(body: Node3D, disk_id: int) -> void:
+	if not is_inside_tree():
+		push_warning("Skip disk move, as scene tree has been removed")
+		return
+	if is_queued_for_deletion():
+		return
 	var temp_pos = body.position
 	body.get_parent().remove_child(body)
 	if disk_id > disk_count:
