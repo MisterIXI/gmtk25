@@ -99,13 +99,10 @@ func move_node_to_disk(body: Node3D, disk_id: int) -> void:
 func is_last_disk(disk_id: int) -> bool:
 	return disk_id + 1 == disks.size()
 
-func next_disk(disk_id: int) -> int:
-	return (disk_id + 1) % disks.size()
-
-
 func body_entered_on_wiper_area_x(body: Node3D, disk_id: int) -> void:
 	if body.is_in_group("wipeable") and not body in objects_being_wiped:
-		if is_last_disk(disk_id):
+		# check if disk before 0
+		if disk_id == 1:
 			objects_being_wiped[body] = disks[0].undissolve_indicator
 			move_node_to_disk(body, 0)
 		else:
@@ -121,8 +118,8 @@ func body_exited_wiper_area_x(body: Node3D, disk_id: int) -> void:
 	if body in objects_being_wiped:
 		if disk_id == 0:
 			SoundManager.stop_wiper_sound()
-		# check if last disk -> should not trigger as all is already handled
-		if is_last_disk(disk_id):
+		# check if disk before 0 -> should not trigger as all is already handled
+		if disk_id == 1:
 			return
 		var meshes = get_all_child_meshes(body)
 		for mesh in meshes:
@@ -130,7 +127,7 @@ func body_exited_wiper_area_x(body: Node3D, disk_id: int) -> void:
 		# check if exit while dissolve of undissolve of disk 0 is used, this should not move the disk
 		if objects_being_wiped[body] != disks[disk_id].undissolve_indicator:
 			objects_being_wiped.erase(body)
-			move_node_to_disk(body, (disk_id + 1) % disk_count)
+			move_node_to_disk(body, (disk_id - 1) % disk_count)
 		else:
 			objects_being_wiped.erase(body)
 			if body is RigidBody3D:
