@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b8jfqxna2kd20" path="res://scenes/level_entities/basic_block_wall.tscn" id="6_q6ljp"]
 [ext_resource type="PackedScene" uid="uid://ba60bp4ys1101" path="res://scenes/level_entities/cable_part.tscn" id="7_4dr30"]
 [ext_resource type="PackedScene" uid="uid://dd7kd1hu71km3" path="res://scenes/level_entities/cable_part_corner.tscn" id="8_dscar"]
-[ext_resource type="Script" path="res://scenes/Entities/cable_highlighter.gd" id="9_01hg1"]
+[ext_resource type="Script" uid="uid://bjelfpfwxbvwm" path="res://scenes/Entities/cable_highlighter.gd" id="9_01hg1"]
 [ext_resource type="PackedScene" uid="uid://cu04utelbwhjk" path="res://scenes/level_entities/interacting_crate.tscn" id="10_v5pqk"]
 [ext_resource type="PackedScene" uid="uid://cr4t270bjcvjj" path="res://scenes/level_entities/spike_decoration.tscn" id="11_m2te4"]
 [ext_resource type="PackedScene" uid="uid://di4hm0dac5sc5" path="res://scenes/level_entities/trigger_object.tscn" id="12_kxbgd"]
@@ -21,6 +21,8 @@
 
 [node name="TimeWiper" parent="." node_paths=PackedStringArray("disks") instance=ExtResource("1_a3l5x")]
 disks = [NodePath("../Disk0"), NodePath("../Disk1"), NodePath("../Disk2"), NodePath("../Disk3")]
+colors = Array[Color]([Color(0.458824, 0.458824, 0.458824, 1), Color(0.748212, 0.389674, 0, 1), Color(0.453523, 0.131127, 1, 1), Color(3.65794e-06, 0.858525, 0.765585, 1), Color(1, 1, 1, 1)])
+object_colors = Array[Color]([Color(0.310617, 0.310617, 0.310617, 1), Color(0.470104, 0.235708, 1.44392e-07, 1), Color(0.301093, 0.000927672, 0.699477, 1), Color(5.10186e-06, 0.493463, 0.437663, 1), Color(0.347817, 0.347817, 0.347817, 1)])
 
 [node name="Disk0" parent="." instance=ExtResource("2_keemd")]
 
