@@ -481,7 +481,7 @@ _portal_mesh = NodePath("Portal_base/Portal")
 
 [node name="Portal_base" type="Node3D" parent="."]
 
-[node name="Portal" type="MeshInstance3D" parent="Portal_base"]
+[node name="Portal" type="MeshInstance3D" parent="Portal_base" groups=["color_immunity"]]
 mesh = SubResource("ArrayMesh_8nac6")
 skeleton = NodePath("")
 
