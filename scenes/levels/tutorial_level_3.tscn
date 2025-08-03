@@ -16,7 +16,9 @@
 
 [node name="tutorial_level_3" type="Node3D"]
 
-[node name="TimeWiper" parent="." instance=ExtResource("1_syl3b")]
+[node name="TimeWiper" parent="." node_paths=PackedStringArray("disks") instance=ExtResource("1_syl3b")]
+disks = [NodePath("../Disk0"), NodePath("../Disk1"), NodePath("../Disk2")]
+object_colors = Array[Color]([Color(0.574563, 0.402002, 0.102642, 1), Color(0.460413, 0.122636, 0.173988, 1), Color(7.94157e-07, 0.302315, 0.352594, 1), Color(0.320819, 0.450246, 0.340053, 1), Color(0.215686, 0.117647, 0.188235, 1)])
 
 [node name="Disk0" parent="." instance=ExtResource("2_fptfu")]
 
