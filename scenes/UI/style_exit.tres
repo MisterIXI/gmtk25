@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bmlqpyygh8ejf"]
+
+[ext_resource type="Texture2D" uid="uid://bn2is3hmp0xjj" path="res://assets/textures/ui/exit_the_time_button.png" id="1_ex1p8"]
+
+[resource]
+content_margin_left = 140.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_ex1p8")
