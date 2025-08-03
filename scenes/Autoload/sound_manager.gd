@@ -1,7 +1,7 @@
 extends Node3D
 #
 # SoundManager.playSound(SoundManager.SOUND.CLICK)
-# SoundManager.playSound3D(SoundManager.SOUND.CLICK)
+# SoundManager.playSound3D(SoundManager.SOUND.DROP_CRATE, global_position)
 #
 #
 #

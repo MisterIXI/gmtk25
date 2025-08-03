@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c0f06ismxwadk" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.tscn" id="4_q60lh"]
 [ext_resource type="PackedScene" uid="uid://b8jfqxna2kd20" path="res://scenes/level_entities/basic_block_wall.tscn" id="5_rfi1o"]
 [ext_resource type="PackedScene" uid="uid://cu04utelbwhjk" path="res://scenes/level_entities/interacting_crate.tscn" id="6_5towc"]
-[ext_resource type="PackedScene" uid="uid://cbgh70mpgg5a3" path="res://scenes/level_entities/deco_sphere.tscn" id="6_b3p7y"]
+[ext_resource type="PackedScene" uid="uid://75183rgob36g" path="res://scenes/level_entities/deco_sphere.tscn" id="6_b3p7y"]
 [ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="6_syl3b"]
 [ext_resource type="PackedScene" uid="uid://dalxmm5xn4831" path="res://scenes/Entities/Camera/camera_game_scene.tscn" id="7_b3p7y"]
-[ext_resource type="PackedScene" uid="uid://ckagynukyr3mg" path="res://scenes/level_entities/trigger_object.tscn" id="7_fptfu"]
+[ext_resource type="PackedScene" uid="uid://di4hm0dac5sc5" path="res://scenes/level_entities/trigger_object.tscn" id="7_fptfu"]
 [ext_resource type="PackedScene" uid="uid://cr4t270bjcvjj" path="res://scenes/level_entities/spike_decoration.tscn" id="8_grvli"]
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="8_my1xs"]
 [ext_resource type="PackedScene" uid="uid://bflp3dea0v8q4" path="res://scenes/level_entities/deco_cube.tscn" id="11_ktf5d"]
@@ -116,7 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.334, 0, 0)
 disk_id = 2
 
 [node name="Portal" parent="Disk2" node_paths=PackedStringArray("_door_mechanic") groups=["wipeable"] instance=ExtResource("3_5towc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39761, 1, 13.357)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19086, 1, 11.3755)
 _door_mechanic = NodePath("../../Disk0/Trigger_Door_Mechanic")
 
 [node name="Trigger_Object" parent="Disk2" groups=["wipeable"] instance=ExtResource("7_fptfu")]

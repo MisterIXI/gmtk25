@@ -32,7 +32,5 @@ func interact()->void:
 func drop_effect(_drop_position : Vector3) ->void:
 	print("drop")
 	_is_holding = false
-	#check if button is nearby
-	var _result : bool = false
-	
+	SoundManager.playSound3D(SoundManager.SOUND.DROP_CRATE, global_position)
 	global_position = _drop_position + Vector3(0,0.5,0)

@@ -1018,7 +1018,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Eye_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(-4.37114e-08, 1, 3.55271e-15, -1, -4.37114e-08, 7.54979e-08, 7.54979e-08, -2.52595e-16, 1, 0, 3.89554, 0)
+transform = Transform3D(-3.61999e-06, 1, 3.55271e-15, -1, -3.61999e-06, 7.54979e-08, 7.54979e-08, 2.69749e-13, 1, 0, 3.89554, 0)
 bone_name = "Eye_2"
 bone_idx = 3
 
@@ -1051,7 +1051,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Feet_Right_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(1, 4.44089e-16, 2.38419e-07, -3.46592e-09, -0.999894, 0.0145371, 2.38393e-07, -0.0145371, -0.999894, 0, 1, 0.711963)
+transform = Transform3D(1, -4.10783e-15, 2.38418e-07, -3.46591e-09, -0.999894, 0.0145371, 2.38393e-07, -0.0145371, -0.999894, 0, 1, 0.711963)
 bone_name = "Feet_Right_2"
 bone_idx = 11
 
@@ -1062,7 +1062,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Forearm_Left_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(-1.74157e-07, 1, 1.15388e-07, 2.61424e-06, -6.34097e-08, 1, 1, 1.76014e-07, -2.62074e-06, 0.838367, 2.0459, -1.04155)
+transform = Transform3D(3.62285e-07, 1, 4.43204e-07, 3.12405e-06, -4.16493e-07, 1, 1, -3.3249e-07, -3.09758e-06, 0.838368, 2.0459, -1.04155)
 bone_name = "Forearm_Left_2"
 bone_idx = 5
 
@@ -1073,7 +1073,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Forearm_Right_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(-1.74157e-07, 1, 1.15388e-07, 2.61424e-06, -6.34097e-08, 1, 1, 1.76014e-07, -2.62074e-06, 0.838367, 2.0459, 0.972495)
+transform = Transform3D(3.62285e-07, 1, 4.43204e-07, 3.12405e-06, -4.16493e-07, 1, 1, -3.3249e-07, -3.09758e-06, 0.838368, 2.0459, 0.972495)
 bone_name = "Forearm_Right_2"
 bone_idx = 8
 
@@ -1084,7 +1084,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Hand_Left_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(-1.74163e-07, 1, 1.15388e-07, 2.61424e-06, -6.341e-08, 1, 1, 1.7602e-07, -2.62074e-06, 1.17764, 2.0459, -1.04155)
+transform = Transform3D(3.62278e-07, 1, 4.43204e-07, 3.12405e-06, -4.16493e-07, 1, 1, -3.32483e-07, -3.09758e-06, 1.17764, 2.0459, -1.04155)
 bone_name = "Hand_Left_2"
 bone_idx = 6
 
@@ -1095,7 +1095,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Hand_Right_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(-1.74163e-07, 1, 1.15388e-07, 2.61424e-06, -6.341e-08, 1, 1, 1.7602e-07, -2.62074e-06, 1.17764, 2.0459, 0.972495)
+transform = Transform3D(3.62278e-07, 1, 4.43204e-07, 3.12405e-06, -4.16493e-07, 1, 1, -3.32483e-07, -3.09758e-06, 1.17764, 2.0459, 0.972495)
 bone_name = "Hand_Right_2"
 bone_idx = 9
 
@@ -1106,7 +1106,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Upper_Arm_Left_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(0.00892246, 0.99996, 2.65241e-06, 2.47359e-06, -2.6226e-06, 1, 0.99996, -0.00892246, -2.5034e-06, 0, 2.0459, -1.03407)
+transform = Transform3D(0.00892299, 0.99996, 2.98023e-06, 2.98023e-06, -2.98023e-06, 1, 0.99996, -0.00892296, -2.98023e-06, 0, 2.0459, -1.03407)
 bone_name = "Upper_Arm_Left_2"
 bone_idx = 4
 
@@ -1117,7 +1117,7 @@ skin = SubResource("Skin_t6h0g")
 skeleton = NodePath("../..")
 
 [node name="Upper_Arm_Right_Bone" type="BoneAttachment3D" parent="robo_chan_model/Armature/Skeleton3D"]
-transform = Transform3D(0.00892246, 0.99996, 2.65241e-06, 2.47359e-06, -2.6226e-06, 1, 0.99996, -0.00892246, -2.5034e-06, 0, 2.0459, 0.979976)
+transform = Transform3D(0.00892299, 0.99996, 2.98023e-06, 2.98023e-06, -2.98023e-06, 1, 0.99996, -0.00892296, -2.98023e-06, 0, 2.0459, 0.979976)
 bone_name = "Upper_Arm_Right_2"
 bone_idx = 7
 
@@ -1143,8 +1143,10 @@ shape = SubResource("BoxShape3D_xqmoc")
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0213013, 0.171233, 0.0186005)
 emitting = false
-amount = 100
-speed_scale = 2.0
+amount = 200
+lifetime = 10.0
+one_shot = true
+speed_scale = 3.0
 randomness = 1.0
 lifetime_randomness = 1.0
 mesh = SubResource("PlaneMesh_du41l")

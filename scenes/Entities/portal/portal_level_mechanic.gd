@@ -30,6 +30,7 @@ func _on_door_mechanic_changed(_value : bool)->void:
 
 func _turn_on_portal() ->void:
 	print("portal is open")
+	SoundManager.playSound3D(SoundManager.SOUND.GATE_OPEN, global_position)
 	portal_is_enabled = true
 	_portal_mesh.mesh.surface_set_material(1,_portal_active_area_mat)
 	_portal_mesh.mesh.surface_set_material(2,_portal_active_bogen_mat)

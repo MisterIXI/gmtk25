@@ -102,6 +102,8 @@ func is_last_disk(disk_id: int) -> bool:
 func next_disk(disk_id: int) -> int:
 	return (disk_id + 1) % disks.size()
 
+# SoundManager.playSound3D(SoundManager.WIPER, global_position)
+
 func body_entered_on_wiper_area_x(body: Node3D, disk_id: int) -> void:
 	if body.is_in_group("wipeable") and not body in objects_being_wiped:
 		if is_last_disk(disk_id):

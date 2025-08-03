@@ -14,6 +14,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		_check_deathplane()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -41,3 +42,9 @@ func _physics_process(delta: float) -> void:
 
 func enable_particles() ->void: 
 	_particle_system.emitting  =true
+
+func _check_deathplane() ->void:
+	if global_position.y < -250.0:
+		_particle_system.emitting =true
+		global_position = Vector3.ZERO + Vector3.UP
+		print("Reset Player")
