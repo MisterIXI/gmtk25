@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5t2jyubv6nib"]
+[gd_scene load_steps=17 format=3 uid="uid://b5t2jyubv6nib"]
 
 [ext_resource type="Script" uid="uid://dm50r0agt5v6n" path="res://scenes/main-menu/mainmenu.gd" id="1_ngnu3"]
 [ext_resource type="Script" uid="uid://ck27ew68cm2ii" path="res://scenes/main-menu/clock_background.gd" id="1_qs7d8"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://3n2ba47ilwja" path="res://scenes/main-menu/level_transition.gd" id="4_viftl"]
 [ext_resource type="StyleBox" uid="uid://c8ntwmpj30y61" path="res://scenes/UI/stylebox_resume.tres" id="5_m5esn"]
 [ext_resource type="StyleBox" uid="uid://wl6y4unkyaer" path="res://scenes/UI/stylebox_alter.tres" id="6_m5esn"]
+[ext_resource type="StyleBox" uid="uid://cig4aayky7nmg" path="res://scenes/UI/stylebox_levelsel.tres" id="7_fif0i"]
 [ext_resource type="StyleBox" uid="uid://bmlqpyygh8ejf" path="res://scenes/UI/style_exit.tres" id="7_l0x64"]
+[ext_resource type="PackedScene" uid="uid://bwihula06msc5" path="res://scenes/main-menu/level_options.tscn" id="9_ivmv0"]
 
 [sub_resource type="Animation" id="Animation_h26tg"]
 length = 0.001
@@ -156,6 +158,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="Menu/SlidingContainer/CenterStuff/MainMenuButtons"]
 layout_mode = 2
+tooltip_text = "Start the time"
 theme_override_styles/focus = ExtResource("4_kil4e")
 theme_override_styles/hover = ExtResource("4_kil4e")
 theme_override_styles/pressed = ExtResource("4_kil4e")
@@ -178,6 +181,14 @@ theme_override_styles/hover = ExtResource("6_m5esn")
 theme_override_styles/pressed = ExtResource("6_m5esn")
 theme_override_styles/normal = ExtResource("6_m5esn")
 
+[node name="Button5" type="Button" parent="Menu/SlidingContainer/CenterStuff/MainMenuButtons"]
+layout_mode = 2
+tooltip_text = "Level Selection"
+theme_override_styles/focus = ExtResource("7_fif0i")
+theme_override_styles/hover = ExtResource("7_fif0i")
+theme_override_styles/pressed = ExtResource("7_fif0i")
+theme_override_styles/normal = ExtResource("7_fif0i")
+
 [node name="Button3" type="Button" parent="Menu/SlidingContainer/CenterStuff/MainMenuButtons"]
 layout_mode = 2
 tooltip_text = "Exit the time"
@@ -196,8 +207,14 @@ offset_top = 5.0
 offset_right = 157.0
 offset_bottom = 5.0
 
+[node name="LevelOptions" parent="Menu/SlidingContainer" instance=ExtResource("9_ivmv0")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
 [connection signal="timeout" from="Menu/ClockBackground/Timer" to="Menu/ClockBackground" method="_on_timer_timeout"]
 [connection signal="pressed" from="Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button4" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button2" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button5" to="." method="_on_level_selection_button_pressed"]
 [connection signal="pressed" from="Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button3" to="." method="_on_quit_button_pressed"]

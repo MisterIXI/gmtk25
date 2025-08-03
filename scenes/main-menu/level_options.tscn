@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwihula06msc5"]
+
+[ext_resource type="Script" uid="uid://crphv4t26wqm1" path="res://scenes/main-menu/level_options.gd" id="1_hdm11"]
+[ext_resource type="PackedScene" uid="uid://bvfmgpoq6ud05" path="res://scenes/main-menu/level_button_Base.tscn" id="2_k6ju1"]
+
+[node name="LevelOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdm11")
+_packed_scene_button_base = ExtResource("2_k6ju1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -974.0
+offset_right = 121.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+columns = 3
