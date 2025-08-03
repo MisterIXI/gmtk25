@@ -22,12 +22,14 @@ func _input(event):
 
 ### this function will switch in level selection scene
 func on_level_change(index : int) ->void:
-
-	call_deferred("_start_new_scene",level_nodes[index])
-	current_index = index
+	if index >= level_nodes.size():
+		go_to_menu()
+	else:
+		call_deferred("_start_new_scene",level_nodes[index], index)
+		current_index = index
 
 func on_start_game() ->void:
-	call_deferred("_start_new_scene",level_nodes[0])
+	call_deferred("_start_new_scene",level_nodes[0], 0)
 	current_index = 0
 	
 ### this function will switch in continues gaming after using the portal
@@ -36,7 +38,9 @@ func on_next_level_change() ->void:
 	if current_index != -1:
 		level_beaten_status[current_index] = true
 		Mainmenu.update_level_beaten_states(level_beaten_status)
-	go_to_menu()
+		on_level_change(current_index + 1)
+	else:
+		go_to_menu()
 	# if current_scene == null:
 	# 	go_to_menu()
 	# else:

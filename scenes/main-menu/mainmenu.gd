@@ -13,13 +13,14 @@ extends Control
 var active_tween: Tween
 var _is_game_paused: bool = false
 
-# func _input(event: InputEvent) -> void:
-# 	if event.is_action_pressed("escape") and !_is_game_paused:
-# 		#Pause Game
-# 		print("PAUSED GAME")
-# 		#click sound
-# 		SoundManager.playSound(SoundManager.SOUND.CLICK)
-# 		_on_button_paused_game_pressed()
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):# and !_is_game_paused:
+		LevelManager.go_to_menu()
+		# #Pause Game
+		# print("PAUSED GAME")
+		# #click sound
+		# SoundManager.playSound(SoundManager.SOUND.CLICK)
+		# _on_button_paused_game_pressed()
 
 func _init():
 	hide()
@@ -60,7 +61,7 @@ func _on_start_game_button_pressed() -> void:
 	on_scene_change_cast_transition_effect()
 	#hide start button and show resume
 	_start_button.hide()
-	_resume_button.show()
+	# _resume_button.show()
 	#click sound
 	SoundManager.playSound(SoundManager.SOUND.CLICK)
 	menu_control.hide()
