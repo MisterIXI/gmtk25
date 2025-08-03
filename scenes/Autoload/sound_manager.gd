@@ -15,7 +15,11 @@ enum SOUND {
 	#3D Sounds
 	DROP_CRATE = 3,
 	GATE_OPEN = 4,
-	WIPER = 5
+	WIPER = 5,
+	# UI Sounds
+	PAUSE = 6,
+	PLAY = 7,
+	FF = 8,
 }
 
 @onready var _audio3d_drop_crate : AudioStreamPlayer3D = $Stream3D_01
@@ -26,6 +30,9 @@ enum SOUND {
 @onready var _audio_click : AudioStreamPlayer = $Click
 @onready var _audio_game_win: AudioStreamPlayer = $Game_Win
 
+@onready var _audio_speed_pause : AudioStreamPlayer = $SpeedPause
+@onready var _audio_speed_play : AudioStreamPlayer = $SpeedPlay
+@onready var _audio_speed_ff : AudioStreamPlayer = $SpeedFF
 func _ready() -> void:
 	_audio_music.play()
 
@@ -44,6 +51,12 @@ func playSound(_sound : SOUND) ->void:
 		
 		SOUND.GAME_WIN:
 			_audio_game_win.play()
+		SOUND.PAUSE:
+			_audio_speed_pause.play()
+		SOUND.PLAY:
+			_audio_speed_play.play()
+		SOUND.FF:
+			_audio_speed_ff.play()			
 		_:
 			print("SoundManager Error: no match of SOUND")
 func playSound3D(_sound : SOUND, _pos : Vector3) ->void:

@@ -1,7 +1,7 @@
 extends Node3D
 class_name Trigger_Button
 ### if Trigger changed state
-signal triggered(_value : bool)
+signal activation_state_changed(_value : bool)
 const ANIMATION_DURATION: float = 0.3
 @onready var _trigger_area : Area3D = $Trigger_Area
 @onready var trigger_button : MeshInstance3D = $ButtonTopMesh
@@ -27,7 +27,8 @@ func turn_button(_value  : bool)->void:
 	_is_active =_value
 
 	# cast signal to mother
-	triggered.emit(_is_active, self)
+	# activation_state_changed.emit(_is_active, self)
+	activation_state_changed.emit(_is_active)
 
 	var mat = trigger_button.mesh.surface_get_material(0)
 	if _is_active:

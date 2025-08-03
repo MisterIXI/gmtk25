@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba60bp4ys1101"]
+
+[ext_resource type="Shader" uid="uid://dclprbt7mjvem" path="res://scenes/shader/dissolve_albedo.gdshader" id="1_8qnda"]
+[ext_resource type="NoiseTexture3D" uid="uid://b4ahkbkbuq80g" path="res://scenes/shader/dissolve_noise_tex.tres" id="2_1lsai"]
+[ext_resource type="NoiseTexture3D" uid="uid://cvn4nspx45ff6" path="res://scenes/shader/hue_noise_tex.tres" id="3_xcqti"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltn42"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_8qnda")
+shader_parameter/expansion_max = -0.1
+shader_parameter/transition_in = -0.5
+shader_parameter/transition_out = 0.5
+shader_parameter/surface_albedo = Color(0.619608, 0, 0, 1)
+shader_parameter/emission = Color(1, 0, 0, 0)
+shader_parameter/metallic = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/dissolve_noise_texture = ExtResource("2_1lsai")
+shader_parameter/hue_noise_texture = ExtResource("3_xcqti")
+shader_parameter/intersector_pos = Vector3(0, -0.515, 0)
+shader_parameter/intersector_radius = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0d2p"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_ltn42")
+size = Vector3(2, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_581hk"]
+size = Vector3(2, 0.3, 0.3)
+
+[node name="CablePart1" type="Area3D" groups=["wipeable"]]
+
+[node name="CableMesh" type="MeshInstance3D" parent="." groups=["color_immunity"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_p0d2p")
+
+[node name="CableColShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("BoxShape3D_581hk")

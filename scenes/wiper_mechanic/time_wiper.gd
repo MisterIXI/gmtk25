@@ -6,9 +6,12 @@ extends Node
 ## current wipe angle in rad
 @export var colors: Array[Color]
 @export var object_colors: Array[Color]
+@export var stage_speeds: Vector3 = Vector3(0, 30, 150)
 var progress: float
 var curr_start_id: int = 0
 var wipe_angle: float = 0.0
+
+@export var texture_rects_speed_ui: Array[Control] = []
 
 var objects_being_wiped: Dictionary[Node3D, MeshInstance3D] = {}
 @onready var disk_count: int = disks.size()
@@ -32,6 +35,41 @@ func _physics_process(delta):
 	mat.set("shader_parameter/color2", colors[curr_start_id])
 	mat.set("shader_parameter/color1", colors[(curr_start_id + 1) % disk_count])
 	update_dissolve_shader_parameters()
+
+func _input(event):
+	if event is InputEventKey:
+		var key:= event as InputEventKey
+		# discard key_up events
+		if not key.is_pressed():
+			return
+		if key.keycode == KEY_1 or key.keycode == KEY_SPACE:
+			if rotation_speed_deg == 0:
+				change_speed_to(1)
+			else:
+				change_speed_to(0)
+		if key.keycode == KEY_2:
+			change_speed_to(1)
+		if key.keycode == KEY_3:
+			change_speed_to(2)
+
+func change_speed_to(id: int):
+	if id < 0 or id > 2:
+		push_warning("Requested speed id OOB! Discarding request...")
+		return
+	rotation_speed_deg = stage_speeds[id]
+	for tex in texture_rects_speed_ui:
+		tex.modulate = Color.WHITE
+	texture_rects_speed_ui[id].modulate = Color.SKY_BLUE
+	texture_rects_speed_ui[id+3].modulate = Color.SKY_BLUE
+	match id:
+		0:
+			SoundManager.playSound(SoundManager.SOUND.PAUSE)
+		1:
+			SoundManager.playSound(SoundManager.SOUND.PLAY)
+		2:
+			SoundManager.playSound(SoundManager.SOUND.FF)
+		_:
+			pass
 
 func get_all_child_meshes(node: Node3D) -> Array[MeshInstance3D]:
 	var result: Array[MeshInstance3D] = []
@@ -57,6 +95,8 @@ func set_wipeable_bodies_color() -> void:
 	for disk_id in range(disks.size()):
 		for body in find_all_wipeable_bodies(disks[disk_id]):
 			for mesh_instance in get_all_child_meshes(body):
+				if mesh_instance.is_in_group("color_immunity"):
+					continue
 				mesh_instance.mesh.surface_get_material(0).set("shader_parameter/surface_albedo", object_colors[disk_id])
 			pass
 
@@ -99,18 +139,16 @@ func move_node_to_disk(body: Node3D, disk_id: int) -> void:
 func is_last_disk(disk_id: int) -> bool:
 	return disk_id + 1 == disks.size()
 
-func next_disk(disk_id: int) -> int:
-	return (disk_id + 1) % disks.size()
-
-# SoundManager.playSound3D(SoundManager.WIPER, global_position)
-
 func body_entered_on_wiper_area_x(body: Node3D, disk_id: int) -> void:
 	if body.is_in_group("wipeable") and not body in objects_being_wiped:
-		if is_last_disk(disk_id):
+		# check if disk before 0
+		if disk_id == 1:
 			objects_being_wiped[body] = disks[0].undissolve_indicator
 			move_node_to_disk(body, 0)
 		else:
 			objects_being_wiped[body] = disks[disk_id].dissolve_indicator
+			if disk_id == 0:
+				SoundManager.playSound3D(SoundManager.SOUND.WIPER, body.global_position)
 		if body is RigidBody3D:
 			body.freeze = true
 		# if disk_id + 1 == disk_count:
@@ -118,8 +156,10 @@ func body_entered_on_wiper_area_x(body: Node3D, disk_id: int) -> void:
 
 func body_exited_wiper_area_x(body: Node3D, disk_id: int) -> void:
 	if body in objects_being_wiped:
-		# check if last disk -> should not trigger as all is already handled
-		if is_last_disk(disk_id):
+		if disk_id == 0:
+			SoundManager.stop_wiper_sound()
+		# check if disk before 0 -> should not trigger as all is already handled
+		if disk_id == 1:
 			return
 		var meshes = get_all_child_meshes(body)
 		for mesh in meshes:
@@ -127,7 +167,7 @@ func body_exited_wiper_area_x(body: Node3D, disk_id: int) -> void:
 		# check if exit while dissolve of undissolve of disk 0 is used, this should not move the disk
 		if objects_being_wiped[body] != disks[disk_id].undissolve_indicator:
 			objects_being_wiped.erase(body)
-			move_node_to_disk(body, (disk_id + 1) % disk_count)
+			move_node_to_disk(body, (disk_id - 1) % disk_count)
 		else:
 			objects_being_wiped.erase(body)
 			if body is RigidBody3D:
