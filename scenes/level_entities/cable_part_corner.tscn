@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dd7kd1hu71km3"]
+
+[ext_resource type="Shader" uid="uid://dclprbt7mjvem" path="res://scenes/shader/dissolve_albedo.gdshader" id="1_6pyh7"]
+[ext_resource type="NoiseTexture3D" uid="uid://b4ahkbkbuq80g" path="res://scenes/shader/dissolve_noise_tex.tres" id="2_tk6f0"]
+[ext_resource type="NoiseTexture3D" uid="uid://cvn4nspx45ff6" path="res://scenes/shader/hue_noise_tex.tres" id="3_g61ss"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6pyh7"]
+size = Vector3(0.85, 0.3, 0.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pyh7"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_6pyh7")
+shader_parameter/expansion_max = -0.1
+shader_parameter/transition_in = -0.5
+shader_parameter/transition_out = 0.5
+shader_parameter/surface_albedo = Color(0.619608, 0, 0, 1)
+shader_parameter/emission = Color(1, 0, 0, 0)
+shader_parameter/metallic = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/dissolve_noise_texture = ExtResource("2_tk6f0")
+shader_parameter/hue_noise_texture = ExtResource("3_g61ss")
+shader_parameter/intersector_pos = Vector3(0, -0.515, 0)
+shader_parameter/intersector_radius = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_6pyh7"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_6pyh7")
+size = Vector3(0.85, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_581hk"]
+size = Vector3(1.15, 0.3, 0.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk6f0"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("1_6pyh7")
+shader_parameter/expansion_max = -0.1
+shader_parameter/transition_in = -0.5
+shader_parameter/transition_out = 0.5
+shader_parameter/surface_albedo = Color(0.619608, 0, 0, 1)
+shader_parameter/emission = Color(1, 0, 0, 0)
+shader_parameter/metallic = 0.5
+shader_parameter/roughness = 1.0
+shader_parameter/dissolve_noise_texture = ExtResource("2_tk6f0")
+shader_parameter/hue_noise_texture = ExtResource("3_g61ss")
+shader_parameter/intersector_pos = Vector3(0, -0.515, 0)
+shader_parameter/intersector_radius = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0d2p"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_tk6f0")
+size = Vector3(1.15, 0.3, 0.3)
+
+[node name="CablePart1" type="Area3D" groups=["wipeable"]]
+
+[node name="CableColShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575, 0.15, 0)
+shape = SubResource("BoxShape3D_6pyh7")
+
+[node name="CableMesh" type="MeshInstance3D" parent="." groups=["color_immunity"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575, 0.15, 0)
+mesh = SubResource("BoxMesh_6pyh7")
+
+[node name="CableColShape2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.15, -0.425)
+shape = SubResource("BoxShape3D_581hk")
+
+[node name="CableMesh2" type="MeshInstance3D" parent="." groups=["color_immunity"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.15, -0.425)
+mesh = SubResource("BoxMesh_p0d2p")

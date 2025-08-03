@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckp18f4fg40ye"]
+
+[ext_resource type="Script" uid="uid://dgcceg4n5yq2p" path="res://scenes/wiper_mechanic/time_wiper.gd" id="1_kta85"]
+[ext_resource type="Texture2D" uid="uid://n1ykktpphypr" path="res://assets/ui_icons/pause.png" id="2_p5pmu"]
+[ext_resource type="Texture2D" uid="uid://hsrlonwtqob2" path="res://assets/ui_icons/right.png" id="3_fxnna"]
+[ext_resource type="Texture2D" uid="uid://b1ic5a4atossu" path="res://assets/ui_icons/fastForward.png" id="4_1dprp"]
+[ext_resource type="Texture2D" uid="uid://cgvmrjyxxi4p8" path="res://assets/ui_icons/keyboard_1.png" id="5_gnp5p"]
+[ext_resource type="Texture2D" uid="uid://c0qpg2klf6psu" path="res://assets/ui_icons/keyboard_2.png" id="6_f5k1u"]
+[ext_resource type="Texture2D" uid="uid://dnu6g3msfd5u8" path="res://assets/ui_icons/keyboard_3.png" id="7_gq18s"]
+
+[node name="TimeWiper" type="Node" node_paths=PackedStringArray("texture_rects_speed_ui")]
+script = ExtResource("1_kta85")
+colors = Array[Color]([Color(0.929412, 0.682353, 0.286275, 1), Color(0.819608, 0.286275, 0.356863, 1), Color(0, 0.47451, 0.54902, 1), Color(0.639216, 0.788235, 0.658824, 1), Color(0.215686, 0.117647, 0.188235, 1)])
+object_colors = Array[Color]([Color(0.929412, 0.682353, 0.286275, 1), Color(0.819608, 0.286275, 0.356863, 1), Color(0, 0.47451, 0.54902, 1), Color(0.639216, 0.788235, 0.658824, 1), Color(0.215686, 0.117647, 0.188235, 1)])
+texture_rects_speed_ui = [NodePath("CanvasLayer/Panel/GridContainer/TextureRect"), NodePath("CanvasLayer/Panel/GridContainer/TextureRect3"), NodePath("CanvasLayer/Panel/GridContainer/TextureRect5"), NodePath("CanvasLayer/Panel/GridContainer/TextureRect2"), NodePath("CanvasLayer/Panel/GridContainer/TextureRect4"), NodePath("CanvasLayer/Panel/GridContainer/TextureRect6")]
+metadata/_custom_type_script = "uid://dgcceg4n5yq2p"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_bottom = 96.0
+grow_horizontal = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_p5pmu")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_fxnna")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_1dprp")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_gnp5p")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("6_f5k1u")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("7_gq18s")
+expand_mode = 3
+stretch_mode = 5
