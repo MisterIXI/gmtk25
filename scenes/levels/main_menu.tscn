@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://6gf4lvwgbxde"]
+[gd_scene load_steps=61 format=4 uid="uid://6gf4lvwgbxde"]
 
 [ext_resource type="PackedScene" uid="uid://cc485cpnp1sby" path="res://assets/fake_god_ray/cone_mesh.glb" id="2_keln3"]
 [ext_resource type="PackedScene" uid="uid://cyt6tr42wg6ak" path="res://scenes/main-menu/planet_cpu_particle.tscn" id="3_ohdsy"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://domvys0aspq0t" path="res://assets/spaceship/spaceship_cockpit.glb" id="11_7gp8n"]
 [ext_resource type="PackedScene" uid="uid://c2x2mnf077rcf" path="res://assets/spaceship/spaceship_top.glb" id="12_gdcvq"]
 [ext_resource type="Material" uid="uid://3fq6mjx1y7yh" path="res://scenes/shader/dissolve_alpha_mat.tres" id="12_ohdsy"]
+[ext_resource type="Texture2D" uid="uid://b5y7dmk1jk3r1" path="res://assets/textures/ui/main_menu_header.png" id="13_k0nyb"]
+[ext_resource type="Texture2D" uid="uid://dw4vigg6vbv2l" path="res://assets/textures/ui/interact/logo.png" id="14_wgqco"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cud8e"]
 resource_name = "Trigger_Ground_mat"
@@ -119,6 +121,21 @@ data = PackedVector3Array(3.6135, 0.259, -3.6139, 6.0228, 0.259, -6.0229, 7.412,
 [sub_resource type="SphereMesh" id="SphereMesh_1byjt"]
 material = ExtResource("5_sn5u3")
 
+[sub_resource type="Animation" id="Animation_ohdsy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_pwqr4"]
 resource_name = "rotate_sun"
 length = 200.0
@@ -133,21 +150,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 6.26573, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ohdsy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fwnpy"]
@@ -949,3 +951,11 @@ scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_ohdsy")
 
 [node name="Skybox" parent="." instance=ExtResource("10_wko7x")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.547705, -0.0682202, 0.833886, 0.123601, 0.992332, 0, -0.827492, 0.10307, 0.551937, -39.441, 4.996, 4.551)
+texture = ExtResource("13_k0nyb")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.547705, -0.0682202, 0.833886, 0.123601, 0.992332, 0, -0.827492, 0.10307, 0.551937, -40.251, 7.416, 7.006)
+texture = ExtResource("14_wgqco")

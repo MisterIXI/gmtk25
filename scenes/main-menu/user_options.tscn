@@ -15,43 +15,25 @@ script = ExtResource("1_w6jiu")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -974.0
+offset_right = 121.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Master Volume"
-
-[node name="VolumeSlider" type="HSlider" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="DisplayModeLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Display Mode"
-
-[node name="DisplayModeButton" type="OptionButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Back"
-
-[node name="Info_Container" type="PanelContainer" parent="CenterContainer"]
+[node name="Info_Container" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_w6jiu")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Info_Container"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/Info_Container"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 5
@@ -59,21 +41,21 @@ theme_override_constants/margin_top = 420
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/Info_Container/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/Info_Container/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/Info_Container/MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Controls:"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label_info" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Label_info" type="Label" parent="CenterContainer/VBoxContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "
 Move: 
@@ -81,7 +63,7 @@ Interact:
 Camera Zoom:
 Pause:"
 
-[node name="Label_buttons" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Label_buttons" type="Label" parent="CenterContainer/VBoxContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "
  W,A,S,D
@@ -89,11 +71,59 @@ text = "
  Mouse Wheel
 Escape"
 
-[node name="Label2" type="Label" parent="CenterContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/Info_Container/MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Controller:     Support enabled"
 horizontal_alignment = 1
 
-[connection signal="value_changed" from="CenterContainer/PanelContainer/VBoxContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
-[connection signal="item_selected" from="CenterContainer/PanelContainer/VBoxContainer/DisplayModeButton" to="." method="_on_display_mode_button_item_selected"]
-[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label_master" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+value = 40.0
+rounded = true
+
+[node name="Label_sound" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound Volume"
+
+[node name="Sound_Slider" type="HSlider" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+value = 40.0
+rounded = true
+
+[node name="Label_music" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_Slider" type="HSlider" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+value = 40.0
+rounded = true
+
+[node name="DisplayModeLabel" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Display Mode"
+
+[node name="DisplayModeButton" type="OptionButton" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Back"
+
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/MasterSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/Sound_Slider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/music_Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/DisplayModeButton" to="." method="_on_display_mode_button_item_selected"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

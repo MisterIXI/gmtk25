@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqn7s6dysrrtl"]
+
+[ext_resource type="Script" uid="uid://ddl544xaguuna" path="res://scenes/Autoload/sound_manager.gd" id="1_y8ceg"]
+[ext_resource type="AudioStream" uid="uid://d15ykfho6ct0m" path="res://assets/sound_files/ambient-space-arpeggio-350710.mp3" id="2_av6v2"]
+[ext_resource type="AudioStream" uid="uid://mvjo1rnlrpju" path="res://assets/sound_files/gate_opened.mp3" id="3_wqe6a"]
+[ext_resource type="AudioStream" uid="uid://bvhauf3y53gjm" path="res://assets/sound_files/Drop_Crate.mp3" id="3_y5gul"]
+[ext_resource type="AudioStream" uid="uid://b5d5gm7xc8hsl" path="res://assets/sound_files/click.mp3" id="4_20k5e"]
+[ext_resource type="AudioStream" uid="uid://du8bnsmjrn255" path="res://assets/sound_files/wiper_sound.mp3" id="4_s42s3"]
+[ext_resource type="AudioStream" uid="uid://c0vwdmyk71roo" path="res://assets/sound_files/ui_game_win.mp3" id="6_nn7u2"]
+
+[node name="Sound_Manager" type="Node3D"]
+script = ExtResource("1_y8ceg")
+
+[node name="Stream3D_01" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_y5gul")
+bus = &"SFX"
+
+[node name="Stream3D_02" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_wqe6a")
+bus = &"SFX"
+
+[node name="Stream3D_03" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_s42s3")
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_av6v2")
+volume_db = -5.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Game_Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nn7u2")
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_20k5e")
+bus = &"SFX"
