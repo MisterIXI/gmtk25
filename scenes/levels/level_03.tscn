@@ -15,6 +15,8 @@
 
 [node name="TimeWiper" parent="." node_paths=PackedStringArray("disks") instance=ExtResource("1_r8ojw")]
 disks = [NodePath("../Disk0"), NodePath("../Disk1"), NodePath("../Disk2")]
+colors = Array[Color]([Color(0.0941176, 0.784314, 0.215686, 1), Color(2.40654e-07, 0.45904, 0.565362, 1), Color(1, 0.467724, 0.544273, 1), Color(0.31161, 0.599529, 0.999995, 1), Color(0.388235, 0, 0.0352941, 1)])
+object_colors = Array[Color]([Color(0.0577807, 0.499544, 0.129227, 1), Color(0, 0.298851, 0.372041, 1), Color(0.646435, 0, 0.224135, 1), Color(0, 0.29435, 0.629931, 1), Color(0.260958, 7.21961e-07, 0.015664, 1)])
 
 [node name="Disk0" parent="." instance=ExtResource("2_1jnh5")]
 
