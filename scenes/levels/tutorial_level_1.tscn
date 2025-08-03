@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="6_jo27r"]
 [ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="7_jo27r"]
 [ext_resource type="PackedScene" uid="uid://cr4t270bjcvjj" path="res://scenes/level_entities/spike_decoration.tscn" id="7_p4el3"]
-[ext_resource type="PackedScene" uid="uid://ckagynukyr3mg" path="res://scenes/level_entities/trigger_object.tscn" id="8_jo27r"]
+[ext_resource type="PackedScene" uid="uid://di4hm0dac5sc5" path="res://scenes/level_entities/trigger_object.tscn" id="8_jo27r"]
 
 [node name="LevelPackage" type="Node3D"]
 

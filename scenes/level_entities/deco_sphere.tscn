@@ -1,34 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbgh70mpgg5a3"]
+[gd_scene load_steps=7 format=3 uid="uid://75183rgob36g"]
 
 [ext_resource type="Shader" uid="uid://dclprbt7mjvem" path="res://scenes/shader/dissolve_albedo.gdshader" id="1_i6m5o"]
-
-[sub_resource type="Gradient" id="Gradient_xh2vt"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_wgwqq"]
-frequency = 0.0327
-
-[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_cbbqc"]
-width = 128
-height = 128
-seamless = true
-color_ramp = SubResource("Gradient_xh2vt")
-noise = SubResource("FastNoiseLite_wgwqq")
-
-[sub_resource type="Gradient" id="Gradient_ehu8v"]
-offsets = PackedFloat32Array(0.125506, 1)
-colors = PackedColorArray(0.111197, 0.111197, 0.111197, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_j1oy1"]
-noise_type = 2
-frequency = 0.0248
-
-[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_2246y"]
-width = 256
-height = 256
-seamless = true
-seamless_blend_skirt = 0.291
-color_ramp = SubResource("Gradient_ehu8v")
-noise = SubResource("FastNoiseLite_j1oy1")
+[ext_resource type="NoiseTexture3D" uid="uid://b4ahkbkbuq80g" path="res://scenes/shader/dissolve_noise_tex.tres" id="2_i3ryv"]
+[ext_resource type="NoiseTexture3D" uid="uid://cvn4nspx45ff6" path="res://scenes/shader/hue_noise_tex.tres" id="3_6ja35"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i6m5o"]
 resource_local_to_scene = true
@@ -41,8 +15,8 @@ shader_parameter/surface_albedo = Color(1, 1, 1, 0.670588)
 shader_parameter/emission = Color(0, 0, 0, 0)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 1.0
-shader_parameter/dissolve_noise_texture = SubResource("NoiseTexture3D_cbbqc")
-shader_parameter/hue_noise_texture = SubResource("NoiseTexture3D_2246y")
+shader_parameter/dissolve_noise_texture = ExtResource("2_i3ryv")
+shader_parameter/hue_noise_texture = ExtResource("3_6ja35")
 shader_parameter/intersector_pos = Vector3(0, 0, 0)
 shader_parameter/intersector_radius = 0.0
 
