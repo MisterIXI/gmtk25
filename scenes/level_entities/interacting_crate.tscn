@@ -66,6 +66,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pligf"]
+resource_local_to_scene = true
 resource_name = "alien_crate_Cylinder_007"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
