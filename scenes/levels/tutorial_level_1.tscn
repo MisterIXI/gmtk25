@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cenjyqpw7aqeh"]
+[gd_scene load_steps=11 format=3 uid="uid://cenjyqpw7aqeh"]
 
 [ext_resource type="PackedScene" uid="uid://ckp18f4fg40ye" path="res://scenes/level_entities/special_entities/time_wiper.tscn" id="1_5m8dn"]
 [ext_resource type="PackedScene" uid="uid://7b1bpwywy5xq" path="res://scenes/level_entities/special_entities/level_disk.tscn" id="2_1sjbh"]
@@ -10,11 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cs0rskk2e6xr5" path="res://scenes/Entities/Background/Skybox.tscn" id="6_jo27r"]
 [ext_resource type="PackedScene" uid="uid://ceyjhq5003btv" path="res://scenes/Entities/Player/player_main.tscn" id="7_jo27r"]
 [ext_resource type="PackedScene" uid="uid://cr4t270bjcvjj" path="res://scenes/level_entities/spike_decoration.tscn" id="7_p4el3"]
-[ext_resource type="PackedScene" uid="uid://di4hm0dac5sc5" path="res://scenes/level_entities/trigger_object.tscn" id="8_jo27r"]
-[ext_resource type="Script" uid="uid://bjelfpfwxbvwm" path="res://scenes/Entities/cable_highlighter.gd" id="9_5m8dn"]
-[ext_resource type="Script" uid="uid://crlsq4x2r72o3" path="res://components/tools/scene_tree_sorter.gd" id="9_5qyic"]
-[ext_resource type="PackedScene" uid="uid://ba60bp4ys1101" path="res://scenes/level_entities/cable_part.tscn" id="9_65tnc"]
-[ext_resource type="PackedScene" uid="uid://dd7kd1hu71km3" path="res://scenes/level_entities/cable_part_corner.tscn" id="10_5qyic"]
 
 [node name="LevelPackage" type="Node3D"]
 
@@ -29,8 +24,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, -3)
 _door_mechanic = NodePath("../Trigger_Door_Mechanic")
 portal_is_enabled = true
 
-[node name="Trigger_Door_Mechanic" parent="Disk0" instance=ExtResource("4_0v4lm")]
+[node name="Trigger_Door_Mechanic" parent="Disk0" node_paths=PackedStringArray("trigger_collection") instance=ExtResource("4_0v4lm")]
 transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)
+trigger_collection = [null]
 
 [node name="BasicBlockWall" parent="Disk0" instance=ExtResource("5_1sjbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
@@ -121,61 +117,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -12)
 
 [node name="Robo_Chan" parent="Disk0" instance=ExtResource("7_jo27r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 8)
-
-[node name="Trigger_Object" parent="Disk0" groups=["wipeable"] instance=ExtResource("8_jo27r")]
-transform = Transform3D(0.79, 0, 0, 0, 0.79, 0, 0, 0, 0.79, 3, 0, 11)
-
-[node name="CableHighlighter" type="Node" parent="Disk0" node_paths=PackedStringArray("cable_arr", "trigger_object")]
-script = ExtResource("9_5m8dn")
-cable_arr = [NodePath("../CablePart3"), NodePath("../CablePart4"), NodePath("../CablePart5"), NodePath("../CablePart6"), NodePath("../CablePart7"), NodePath("../CablePart8"), NodePath("../CablePart9"), NodePath("../CablePart10"), NodePath("../CablePart11"), NodePath("../CablePart12"), NodePath("../CablePart13"), NodePath("../CablePart14")]
-trigger_object = NodePath("../Trigger_Object")
-metadata/_custom_type_script = "uid://bjelfpfwxbvwm"
-
-[node name="CablePart3" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, 9)
-
-[node name="CablePart4" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, 6)
-
-[node name="CablePart5" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, 4)
-
-[node name="CablePart6" parent="Disk0" instance=ExtResource("10_5qyic")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 2)
-
-[node name="CablePart7" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
-
-[node name="CablePart8" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 2)
-
-[node name="CablePart9" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 2)
-
-[node name="CablePart10" parent="Disk0" instance=ExtResource("10_5qyic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 2)
-
-[node name="CablePart11" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 0, 0)
-
-[node name="CablePart12" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 0, -2)
-
-[node name="CablePart13" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 0, -4)
-
-[node name="CablePart14" parent="Disk0" instance=ExtResource("9_65tnc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 0, -6)
-
-[node name="SceneTreeSorter" type="Node" parent="Disk0"]
-script = ExtResource("9_5qyic")
-metadata/_custom_type_script = "uid://crlsq4x2r72o3"
-
-[node name="CablePart1" parent="Disk0/SceneTreeSorter" instance=ExtResource("9_65tnc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -4)
-
-[node name="CablePart2" parent="Disk0/SceneTreeSorter" instance=ExtResource("10_5qyic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
 
 [node name="Disk1" parent="." instance=ExtResource("2_1sjbh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
