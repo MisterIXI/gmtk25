@@ -18,6 +18,9 @@ func _ready():
 
 
 func light_up(is_positive: bool) -> void:
+	if not is_inside_tree():
+		# print("Waiting for tree!")
+		await tree_entered
 	for i in range(cable_arr.size()):
 		for child in cable_arr[i].get_children():
 			if child is MeshInstance3D:
