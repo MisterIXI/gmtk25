@@ -13,13 +13,13 @@ var _trigger_stats : Array[bool]
 
 func _ready() -> void:
 	#SET ALL TRIGGER VARS TO FALSE
-	for x in trigger_collection:
+	for i in range(trigger_collection.size()):
 		_trigger_stats.append(false)
-		x.triggered.connect(_on_trigger_state_changed)
+		trigger_collection[i].activation_state_changed.connect(_on_trigger_state_changed.bind(i))
 
-func _on_trigger_state_changed(_value : bool, trigger : Node3D)->void:
+func _on_trigger_state_changed(_value : bool, trigger_id: int)->void:
 	# Set new trigger state on/off
-	_trigger_stats[trigger_collection.find(trigger)] = _value
+	_trigger_stats[trigger_id] = _value
 
 	# print("Trigger Set Index:",trigger_collection.find(trigger))
 	# print("Value:", _value)

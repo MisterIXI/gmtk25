@@ -8,11 +8,12 @@ extends Node
 @export var anim_delay: float = 0.01
 @export var start_active: bool = false
 
+signal activation_state_changed(new_state: bool)
 
 
 func _ready():
 	light_up(start_active)
-	trigger_object.triggered.connect(light_up)
+	trigger_object.activation_state_changed.connect(light_up)
 	pass
 
 
@@ -28,4 +29,5 @@ func light_up(is_positive: bool) -> void:
 					mat.set("shader_parameter/surface_albedo", color_inactive)
 					mat.set("shader_parameter/emission", color_inactive/2.0)
 		await get_tree().create_timer(anim_delay).timeout
+	activation_state_changed.emit(is_positive)
 	pass
