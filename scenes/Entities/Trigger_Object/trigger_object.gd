@@ -27,7 +27,8 @@ func turn_button(_value  : bool)->void:
 	_is_active =_value
 
 	# cast signal to mother
-	triggered.emit(_is_active, self)
+	# triggered.emit(_is_active, self)
+	triggered.emit(_is_active)
 
 	var mat = trigger_button.mesh.surface_get_material(0)
 	if _is_active:
