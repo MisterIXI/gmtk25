@@ -17,9 +17,9 @@ func _ready():
 	var bus_idx = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(bus_idx, linear_to_db(0.4))
 	bus_idx = AudioServer.get_bus_index("Music")
-	AudioServer.set_bus_volume_db(bus_idx, linear_to_db(0.4))
+	AudioServer.set_bus_volume_db(bus_idx, linear_to_db(1))
 	bus_idx = AudioServer.get_bus_index("SFX")
-	AudioServer.set_bus_volume_db(bus_idx, linear_to_db(0.4))
+	AudioServer.set_bus_volume_db(bus_idx, linear_to_db(1))
 
 	if OS.has_feature("web"):
 		display_mode_button.hide()
