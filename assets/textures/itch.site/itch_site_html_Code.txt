@@ -1,0 +1,21 @@
+<h3 class="text-center"><a href="https://itch.io/jam/gmtk-2025" target="_blank" style="font-family: inherit;"><img src="https://img.itch.zone/aW1nLzIyNTEwNjIzLnBuZw==/original/Ksj7Up.png">Made for GMTK 2025</a></h3>
+<p class="text-center"><strong>Time Wipers</strong> is a puzzle game,<br>a game with an wonderful robot " Dewe" who strive for new Humanity, who crashed in a anomaly spaceship.</p><ol></ol><ul><li class="text-center">Controls:&nbsp;</li><li class="text-center">use W,A,S,D to move</li><li class="text-center">&nbsp;Interact -E</li><li class="text-center">1,2,3 Time speed</li><li class="text-center">&nbsp;Mouse Wheel - Zoom</li><li class="text-center">R - Reload Scene</li></ul>
+<h2 class="text-center">&nbsp;<img src="https://img.itch.zone/aW1nLzIyNTEwMDI5LnBuZw==/original/XODWGx.png"> Gameplay: </h2>
+<h3 class="text-center">Solve Puzzle</h3>
+<p class="text-center">use W,A,S,D buttons to move and Interact&nbsp;E to hold crates</p>
+<h1 class="text-center"><img src="https://img.itch.zone/aW1nLzIyNTEwNDQ3LnBuZw==/original/1xOiU3.png"></h1>
+<h3 class="text-center">&nbsp;<img src="https://img.itch.zone/aW1nLzIyNTEyMjgzLnBuZw==/original/5y63Zl.png">Activate Button</h3>
+<p class="text-center">Drop crate on the button and run</p>
+<h1 class="text-center"><img src="https://img.itch.zone/aW1nLzIyNTEyMzQ1LnBuZw==/original/pn9bvb.png"></h1><h3 class="text-center"><img src="https://img.itch.zone/aW1nLzIwNzkyNDUzLnBuZw==/original/q72eOs.png">&nbsp;Goal:</h3><br><h3 class="text-center"><a href="https://www.whiteboard.team/app/board/zFAhqJgT">Brainstorming/Moodboard</a></h3>
+<table><tbody><tr><td class="text-center">Engine:</td><td class="text-center">Godot 4.4.1</td></tr><tr><td class="text-center">Programs used:</td><td class="text-center">Blender 4.3,&nbsp;Affinity Designer, paint.net, Visual Studio Code and&nbsp; Audacity</td></tr><tr><td class="text-center">Assets:</td><td class="text-center">All Assets are custom made, except for sfx and&nbsp;music</td></tr></tbody></table>
+<p class="text-center"></p>
+<p class="text-center">Sounds - SFX Pause&nbsp;Play, Fast&nbsp;Forward&nbsp; by&nbsp;<a href="https://pixabay.com/users/floraphonic-38928062/">Floraphonic</a>
+      </p>
+<p class="text-center">Music - "Ambient Space Arpeggio" by <a href="https://pixabay.com/de/music/umgebungs-ambient-space-arpeggio-350710/">Pixabay</a>
+</p>
+<p class="text-center"><a href="https://www.8ballaudio.com/"></a></p>
+<h2 class="text-center"><p>Credits:</p></h2>
+<p><br></p><table><tbody><tr><td><a href="https://s4zz.itch.io/">Sazzles</a></td><td>Emotional Support</td><td class="text-center"><img src="https://img.itch.zone/aW1nLzIwNzc5MzMxLnBuZw==/original/KDmo58.png"><br></td></tr>
+<tr><td><a href="https://itch.io/profile/kamilion-games">Kamilion-games</a><br></td><td>Level Design, Game UI</td><td class="text-center"><img src="https://img.itch.zone/aW1nLzIwNzc5NDA3LnBuZw==/original/UfNhc4.png"><br></td></tr><tr><td><a href="https://chocolandtv.itch.io/">Robert Mögenburg</a><br></td><td>Programming, Intro&nbsp;</td><td class="text-center"><img src="https://img.itch.zone/aW1nLzIwNzc5NDQ0LnBuZw==/original/L4H%2B3J.png"><br></td></tr>
+<tr><td><a href="https://misterixi.itch.io/">MisterIXI</a><br></td><td>Programming (main mechanic),&nbsp;Gamedesign</td><td class="text-center"><img src="https://img.itch.zone/aW1nLzIwNzc5NDIzLnBuZw==/original/WZ%2F1ni.png"></td></tr>
+</tbody></table><p class="text-center">Thanks for playing</p>
