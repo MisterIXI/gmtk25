@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b3qskjsnoqopa" path="res://scenes/Entities/Trigger_Object/trigger_object.gd" id="1_mnjmx"]
 [ext_resource type="NoiseTexture3D" uid="uid://b4ahkbkbuq80g" path="res://scenes/shader/dissolve_noise_tex.tres" id="3_erl60"]
 [ext_resource type="Shader" uid="uid://dclprbt7mjvem" path="res://scenes/shader/dissolve_albedo.gdshader" id="3_y1hc6"]
-[ext_resource type="NoiseTexture3D" uid="uid://dxknkw5xppvib" path="res://scenes/shader/hue_noise_tex.tres" id="4_qqhl1"]
+[ext_resource type="NoiseTexture3D" uid="uid://cvn4nspx45ff6" path="res://scenes/shader/hue_noise_tex.tres" id="4_qqhl1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cvlk5"]
 

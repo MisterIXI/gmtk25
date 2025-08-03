@@ -1,6 +1,7 @@
 extends CharacterBody3D
 @onready var player_visual_node : Node3D = $robo_chan_model
 @onready var _particle_system : CPUParticles3D = $CPUParticles3D
+@onready var interacting_fake : Node3D = $alien_crate
 const SPEED : float = 4.5
 const JUMP_VELOCITY : float = 2.5
 const ACCELERATION : float  = 8

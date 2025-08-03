@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ys0w2n1dmfmt" path="res://scenes/Entities/Interactable_Objects/crate/interacting_crate.gd" id="1_vtrx4"]
 [ext_resource type="Shader" uid="uid://dclprbt7mjvem" path="res://scenes/shader/dissolve_albedo.gdshader" id="2_bhty8"]
 [ext_resource type="NoiseTexture3D" uid="uid://b4ahkbkbuq80g" path="res://scenes/shader/dissolve_noise_tex.tres" id="3_s6s0a"]
-[ext_resource type="NoiseTexture3D" uid="uid://dxknkw5xppvib" path="res://scenes/shader/hue_noise_tex.tres" id="4_hygm4"]
+[ext_resource type="NoiseTexture3D" uid="uid://cvn4nspx45ff6" path="res://scenes/shader/hue_noise_tex.tres" id="4_hygm4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtrx4"]
 size = Vector3(2.18787, 2.44214, 2.25927)
@@ -119,10 +119,8 @@ skeleton = NodePath("")
 [node name="Interacting_Area" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517202, 0)
 collision_layer = 0
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interacting_Area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0209656, 0.289551, 0.0189514)
 shape = SubResource("BoxShape3D_yhllt")
-
-[connection signal="area_entered" from="Interacting_Area" to="." method="_on_area_entered"]

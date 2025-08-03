@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=4 uid="uid://ceyjhq5003btv"]
+[gd_scene load_steps=30 format=4 uid="uid://ceyjhq5003btv"]
 
 [ext_resource type="Script" uid="uid://hqfr1qe5ajov" path="res://scenes/Entities/Player/robo_chan.gd" id="1_fblew"]
 [ext_resource type="PackedScene" uid="uid://bkgctf7xxl8wt" path="res://scenes/UI/Interacting_manager/interacting_manger.tscn" id="2_1bkv2"]
 [ext_resource type="Script" path="res://scenes/Entities/Player/robo_chan_model.gd" id="2_xqmoc"]
 [ext_resource type="Texture2D" uid="uid://gfrni8rv3o" path="res://assets/textures/skybox/particle_star_dust.png" id="3_rmnuq"]
+[ext_resource type="PackedScene" uid="uid://dmkxgvo2881s2" path="res://assets/interactable/alien_crate.glb" id="4_du41l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hq7l6"]
 resource_name = "Head"
@@ -909,6 +910,10 @@ size = Vector2(0.1, 0.1)
 [node name="Robo_Chan" type="CharacterBody3D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_fblew")
+
+[node name="alien_crate" parent="." instance=ExtResource("4_du41l")]
+transform = Transform3D(-1.31134e-08, -4.47035e-09, 0.3, 7.25752e-29, 0.3, 4.47035e-09, -0.3, 1.83187e-16, -1.31134e-08, 8.9407e-07, 2.06097, -2.52263)
+visible = false
 
 [node name="Interacting_Manger" parent="." instance=ExtResource("2_1bkv2")]
 top_level = true
