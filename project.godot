@@ -55,6 +55,7 @@ interactable=""
 wipeable=""
 trigger=""
 color_immunity=""
+wiper=""
 
 [input]
 

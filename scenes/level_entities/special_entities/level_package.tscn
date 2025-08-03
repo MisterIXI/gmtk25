@@ -27,8 +27,16 @@ portal_is_enabled = true
 transform = Transform3D(0.3, 0, 0, 0, 0.172073, -0.245746, 0, 0.245746, 0.172073, 0, 2, -17)
 
 [node name="Disk1" parent="." instance=ExtResource("2_osny8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.415, 0, 0)
 disk_id = 1
+
+[node name="Disk2" parent="." instance=ExtResource("2_osny8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.644, 0, 0)
+disk_id = 2
+
+[node name="Disk3" parent="." instance=ExtResource("2_osny8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 310.849, 0, 0)
+disk_id = 3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.923404, 0.331038, -0.194264, -0.040033, 0.586425, 0.809014, 0.381736, -0.73927, 0.55476, -4.13683, 5.00266, 0)

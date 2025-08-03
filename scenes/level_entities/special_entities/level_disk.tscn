@@ -162,7 +162,7 @@ undissolve_indicator = NodePath("WiperArea/UndissolveIndicator")
 
 [node name="DiskBody" type="StaticBody3D" parent="."]
 
-[node name="DiskColShape" type="CollisionShape3D" parent="DiskBody"]
+[node name="DiskColShape" type="CollisionShape3D" parent="DiskBody" groups=["wiper"]]
 shape = SubResource("ConcavePolygonShape3D_340hd")
 
 [node name="DiskMesh" type="MeshInstance3D" parent="DiskBody"]
@@ -179,7 +179,7 @@ mesh = SubResource("CylinderMesh_5n12o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_tm2kj")
 
-[node name="WiperArea" type="Area3D" parent="."]
+[node name="WiperArea" type="Area3D" parent="." groups=["wiper"]]
 
 [node name="WiperMesh" type="MeshInstance3D" parent="WiperArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1, 0)

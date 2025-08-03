@@ -61,5 +61,10 @@ func _drop_interactable() ->void:
 		_current_holding_object.get_parent().remove_child(_current_holding_object)
 		get_tree().get_first_node_in_group("interact_manager").add_child(_current_holding_object)
 		_current_holding_object.drop_effect(_temp_pos)
+		_current_holding_object = null
 	else: 
 		print("Interacting_Manager Error:  Null Object on _drop_interactable")
+func drop_by_wiper() ->void:
+	if _current_holding_object:
+		_current_holding_object  =null
+
