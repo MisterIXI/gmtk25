@@ -16,6 +16,8 @@ var wipe_angle: float = 0.0
 var objects_being_wiped: Dictionary[Node3D, MeshInstance3D] = {}
 @onready var disk_count: int = disks.size()
 func _ready():
+	texture_rects_speed_ui[1].modulate = Color.SKY_BLUE
+	texture_rects_speed_ui[4].modulate = Color.SKY_BLUE
 	set_wipeable_bodies_color()
 	for i in range(disks.size()):
 		disks[i].wiper.body_entered.connect(body_entered_on_wiper_area_x.bind(i))
