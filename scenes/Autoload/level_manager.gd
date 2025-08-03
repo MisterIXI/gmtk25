@@ -2,6 +2,7 @@ extends Node
 #Here we pack all level in the inspector
 @export var level_nodes : Array[PackedScene]
 @export var menu_scene: PackedScene
+@export var end_scene: PackedScene
 var level_beaten_status: Array[bool]
 
 signal level_changed()
@@ -38,6 +39,9 @@ func on_next_level_change() ->void:
 	if current_index != -1:
 		level_beaten_status[current_index] = true
 		Mainmenu.update_level_beaten_states(level_beaten_status)
+		if level_beaten_status.all(func(x): return x):
+			get_tree().change_scene_to_packed.call_deferred(end_scene)
+			return
 		on_level_change(current_index + 1)
 	else:
 		go_to_menu()

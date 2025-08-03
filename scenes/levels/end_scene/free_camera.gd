@@ -16,18 +16,18 @@ var dragging := false
 var camera :=  self
 
 func _ready():
-    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+    # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
     if target:
         var to_target = (global_position - target.global_position).normalized()
         _rotation.x = atan2(to_target.x, to_target.z)
         _rotation.y = asin(to_target.y)
         update_camera_position()
 
-func _unhandled_input(event):
+func _input(event):
     if event is InputEventMouseButton:
         if event.button_index == MOUSE_BUTTON_RIGHT:
             dragging = event.pressed
-            Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+            # Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
         elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
             distance = max(min_distance, distance - zoom_speed)
