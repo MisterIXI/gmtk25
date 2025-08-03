@@ -95,6 +95,8 @@ func set_wipeable_bodies_color() -> void:
 	for disk_id in range(disks.size()):
 		for body in find_all_wipeable_bodies(disks[disk_id]):
 			for mesh_instance in get_all_child_meshes(body):
+				if mesh_instance.is_in_group("color_immunity"):
+					continue
 				mesh_instance.mesh.surface_get_material(0).set("shader_parameter/surface_albedo", object_colors[disk_id])
 			pass
 
