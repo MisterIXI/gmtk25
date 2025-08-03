@@ -2,6 +2,7 @@ extends Control
 
 @onready var main_menu_buttons = %MainMenuButtons
 @onready var user_options = %UserOptions
+@onready var level_options= %LevelOptions
 @onready var menu_control : Control = $Menu
 @onready var scene_transition_control: Control = $Level_Transition
 @onready var _start_button : Button =$Menu/SlidingContainer/CenterStuff/MainMenuButtons/Button
@@ -19,8 +20,8 @@ func _input(event: InputEvent) -> void:
 		_on_button_paused_game_pressed()
 
 func _ready() -> void:
-	if get_tree().root.name != "Main_Menu":
-		hide()
+	# if get_tree().root.name != "Main_Menu":
+	# 	hide()
 	#debugging brought to you by 
 	#GEMINI :D
 	if not main_menu_buttons:
@@ -39,7 +40,12 @@ func _ready() -> void:
 		user_options.back_pressed.connect(_on_user_options_back_pressed)
 	else:
 		push_error("UserOptions doesn't have back_pressed signal!")
-
+	# LEVEL
+	if level_options.has_signal("back_pressed"):
+		level_options.back_pressed.connect(_on_level_options_back_pressed)
+	else:
+		push_error("UserOptions doesn't have back_pressed signal!")
+	
 	user_options.visible = false
 	user_options.modulate.a = 0.0
 
@@ -71,6 +77,36 @@ func _on_options_button_pressed() -> void:
 	active_tween.tween_callback(_show_options_menu)
 	active_tween.tween_property(user_options, "modulate:a", 1.0, 0.3)
 
+	####### LEVEL SELECTION PRESSED
+func _on_level_selection_button_pressed() -> void:
+	if not main_menu_buttons or not level_options:
+		return
+
+	if active_tween and active_tween.is_running():
+		return
+
+	active_tween = create_tween()
+
+	active_tween.parallel().tween_property(self, "position", Vector2(-80, 0), 0.3).set_trans(Tween.TRANS_SINE)
+	active_tween.parallel().tween_property(main_menu_buttons, "modulate:a", 0.0, 0.3)
+	active_tween.tween_callback(_show_level_menu)
+	active_tween.tween_property(level_options, "modulate:a", 1.0, 0.3)
+
+
+func _on_level_options_back_pressed() ->void:
+	if not main_menu_buttons or not user_options:
+		return
+
+	if active_tween and active_tween.is_running():
+		return
+	active_tween = create_tween()
+
+	active_tween.tween_property(level_options, "modulate:a", 0.0, 0.3)
+	active_tween.tween_callback(_show_main_menu)
+
+	active_tween.parallel().tween_property(self, "position", Vector2.ZERO, 0.3).set_trans(Tween.TRANS_SINE)
+	active_tween.parallel().tween_property(main_menu_buttons, "modulate:a", 1.0, 0.3)
+
 func _on_user_options_back_pressed() -> void:
 	if not main_menu_buttons or not user_options:
 		return
@@ -99,10 +135,20 @@ func _show_options_menu() -> void:
 		SoundManager.playSound(SoundManager.SOUND.CLICK)
 		user_options.visible = true
 
+#### SHOW LEVEL OPTION
+func _show_level_menu() -> void:
+	if main_menu_buttons and is_instance_valid(main_menu_buttons):
+		main_menu_buttons.visible = false
+	if level_options and is_instance_valid(level_options):
+		#click sound
+		SoundManager.playSound(SoundManager.SOUND.CLICK)
+		level_options.visible = true
+
 #thanks ai for showing me some stupid fixes. I dont know
 func _show_main_menu() -> void:
 	if user_options and is_instance_valid(user_options):
 		user_options.visible = false
+		level_options.visible = false
 	if main_menu_buttons and is_instance_valid(main_menu_buttons):
 		#click sound
 		SoundManager.playSound(SoundManager.SOUND.CLICK)
@@ -112,6 +158,8 @@ func _on_button_paused_game_pressed() ->void:
 	get_tree().paused = true
 	_is_game_paused = true
 	scene_transition_control.on_game_paused_effect()
+	user_options.visible = false
+	level_options.visible = false
 	menu_control.show()
 
 func _on_button_resume_pressed() -> void:
@@ -123,3 +171,15 @@ func _on_button_resume_pressed() -> void:
 
 	on_scene_change_cast_transition_effect()
 	menu_control.hide()
+	user_options.visible = false
+	level_options.visible = false
+
+func close_menu() ->void:
+	on_scene_change_cast_transition_effect()
+	menu_control.hide()
+	user_options.visible = false
+	level_options.visible = false
+	_is_game_paused = false
+	get_tree().paused = false
+	#click sound
+	SoundManager.playSound(SoundManager.SOUND.CLICK)

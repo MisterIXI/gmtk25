@@ -26,6 +26,7 @@ func on_next_level_change() ->void:
 
 
 func _start_new_scene(_scene : PackedScene) ->void:
+	Mainmenu.close_menu()
 	print("Start Next Level")
 	if current_scene != null:
 		current_scene.free()  # Free the current scene if it exists

@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cig4aayky7nmg"]
+
+[ext_resource type="Texture2D" uid="uid://wwk7tp3lvug5" path="res://assets/textures/ui/level_selection.png" id="1_illbi"]
+
+[resource]
+content_margin_left = 140.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_illbi")
