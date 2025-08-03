@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 LevelManager="*res://scenes/Autoload/level_manager.tscn"
 Mainmenu="*res://scenes/main-menu/mainmenu.tscn"
+SoundManager="*res://scenes/Autoload/sound_manager.tscn"
 
 [display]
 

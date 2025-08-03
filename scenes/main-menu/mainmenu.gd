@@ -14,6 +14,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("escape") and !_is_game_paused:
 		#Pause Game
 		print("PAUSED GAME")
+		#click sound
+		SoundManager.playSound(SoundManager.SOUND.CLICK)
 		_on_button_paused_game_pressed()
 
 func _ready() -> void:
@@ -50,7 +52,8 @@ func _on_start_game_button_pressed() -> void:
 	#hide start button and show resume
 	_start_button.hide()
 	_resume_button.show()
-
+	#click sound
+	SoundManager.playSound(SoundManager.SOUND.CLICK)
 	menu_control.hide()
 	LevelManager.on_start_game()
 
@@ -84,12 +87,16 @@ func _on_user_options_back_pressed() -> void:
 	active_tween.parallel().tween_property(main_menu_buttons, "modulate:a", 1.0, 0.3)
 
 func _on_quit_button_pressed() -> void:
+	#click sound
+	SoundManager.playSound(SoundManager.SOUND.CLICK)
 	get_tree().quit()
 	
 func _show_options_menu() -> void:
 	if main_menu_buttons and is_instance_valid(main_menu_buttons):
 		main_menu_buttons.visible = false
 	if user_options and is_instance_valid(user_options):
+		#click sound
+		SoundManager.playSound(SoundManager.SOUND.CLICK)
 		user_options.visible = true
 
 #thanks ai for showing me some stupid fixes. I dont know
@@ -97,6 +104,8 @@ func _show_main_menu() -> void:
 	if user_options and is_instance_valid(user_options):
 		user_options.visible = false
 	if main_menu_buttons and is_instance_valid(main_menu_buttons):
+		#click sound
+		SoundManager.playSound(SoundManager.SOUND.CLICK)
 		main_menu_buttons.visible = true
 
 func _on_button_paused_game_pressed() ->void:
@@ -106,6 +115,8 @@ func _on_button_paused_game_pressed() ->void:
 	menu_control.show()
 
 func _on_button_resume_pressed() -> void:
+	#click sound
+	SoundManager.playSound(SoundManager.SOUND.CLICK)
 	scene_transition_control.on_game_resume_effect()
 	get_tree().paused = false
 	_is_game_paused =false
