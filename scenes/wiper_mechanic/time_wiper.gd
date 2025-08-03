@@ -44,7 +44,7 @@ func _input(event):
 		# discard key_up events
 		if not key.is_pressed():
 			return
-		if key.keycode == KEY_1 or key.keycode == KEY_SPACE:
+		if key.keycode == KEY_1:
 			if rotation_speed_deg == 0:
 				change_speed_to(1)
 			else:
