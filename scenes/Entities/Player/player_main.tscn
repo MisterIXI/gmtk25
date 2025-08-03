@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hqfr1qe5ajov" path="res://scenes/Entities/Player/robo_chan.gd" id="1_fblew"]
 [ext_resource type="PackedScene" uid="uid://bkgctf7xxl8wt" path="res://scenes/UI/Interacting_manager/interacting_manger.tscn" id="2_1bkv2"]
-[ext_resource type="Script" path="res://scenes/Entities/Player/robo_chan_model.gd" id="2_xqmoc"]
+[ext_resource type="Script" uid="uid://b4bj5dnmw2fki" path="res://scenes/Entities/Player/robo_chan_model.gd" id="2_xqmoc"]
 [ext_resource type="Texture2D" uid="uid://gfrni8rv3o" path="res://assets/textures/skybox/particle_star_dust.png" id="3_rmnuq"]
 [ext_resource type="PackedScene" uid="uid://dmkxgvo2881s2" path="res://assets/interactable/alien_crate.glb" id="4_du41l"]
 
