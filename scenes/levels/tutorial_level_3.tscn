@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://5aiw5ds5up6d"]
 
-[ext_resource type="Script" uid="uid://dgcceg4n5yq2p" path="res://scenes/wiper_mechanic/time_wiper.gd" id="1_5ddrg"]
+[ext_resource type="PackedScene" uid="uid://ckp18f4fg40ye" path="res://scenes/level_entities/special_entities/time_wiper.tscn" id="1_syl3b"]
 [ext_resource type="PackedScene" uid="uid://7b1bpwywy5xq" path="res://scenes/level_entities/special_entities/level_disk.tscn" id="2_fptfu"]
 [ext_resource type="PackedScene" uid="uid://4pwh4u8tmwu8" path="res://scenes/Entities/portal/portal_base.tscn" id="3_5towc"]
 [ext_resource type="PackedScene" uid="uid://c0f06ismxwadk" path="res://scenes/Entities/Trigger_Door_Mechanic/trigger_door_mechanic.tscn" id="4_q60lh"]
@@ -16,12 +16,7 @@
 
 [node name="tutorial_level_3" type="Node3D"]
 
-[node name="TimeWiper" type="Node" parent="." node_paths=PackedStringArray("disks")]
-script = ExtResource("1_5ddrg")
-disks = [NodePath("../Disk0"), NodePath("../Disk1"), NodePath("../Disk2")]
-colors = Array[Color]([Color(0.929412, 0.682353, 0.286275, 1), Color(0.819608, 0.286275, 0.356863, 1), Color(0, 0.47451, 0.54902, 1), Color(0.639216, 0.788235, 0.658824, 1), Color(0.215686, 0.117647, 0.188235, 1)])
-object_colors = Array[Color]([Color(0.574563, 0.402002, 0.102642, 1), Color(0.460413, 0.122636, 0.173988, 1), Color(7.94157e-07, 0.302315, 0.352594, 1), Color(0.320819, 0.450246, 0.340053, 1), Color(0.215686, 0.117647, 0.188235, 1)])
-metadata/_custom_type_script = "uid://dgcceg4n5yq2p"
+[node name="TimeWiper" parent="." instance=ExtResource("1_syl3b")]
 
 [node name="Disk0" parent="." instance=ExtResource("2_fptfu")]
 
